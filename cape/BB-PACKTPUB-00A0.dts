@@ -1,0 +1,133 @@
+/*
+ * Copyright (C) 2014 Andrew Henderson
+ *
+ * Virtual cape for the following:
+ * I2C1 on P9 pins 24 and 26 (based on BB-I2C1A1 from kernel)
+ * SPI0 on P9 pins 17, 18, 21, and 22 (based on BB-SPI0 from kernel)
+ * GPIO on P9 pins 11 and 13 
+ * 
+ * fragment@0 is all of the pinmux settings for I2C1, SPI0, and GPIO 
+ * fragment@1 is all of the I2C1 configuration settings
+ * fragment@2 is all of the SPI0 configuration settings
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "ti,beaglebone", "ti,beaglebone-black";
+
+	/* identification */
+	part-number = "BB-PACKTPUB";
+	version = "00A0";
+
+	/* state the resources this cape uses */
+	exclusive-use =
+		/* the pin header uses */
+		"P9.11",	/* gpio0_30 */
+		"P9.13",	/* gpio0_31 */
+		"P9.17",	/* spi0_cs0 */
+		"P9.18",	/* spi0_d1 */
+		"P9.21",	/* spi0_d0 */
+		"P9.22",	/* spi0_sclk */
+		"P9.26",	/* i2c1_sda */
+		"P9.24",	/* i2c1_scl */
+		/* the hardware ip uses */
+		"i2c1",
+		"spi0";
+
+	fragment@0 {
+		target = <&am33xx_pinmux>;
+		__overlay__ {
+			/* All I2C1 pins are SLEWCTRL_SLOW, 
+			   INPUT_PULLUP, MODE3 */
+			bb_i2c1a1_pins: pinmux_bb_i2c1a1_pins {
+				pinctrl-single,pins = <
+					0x180 0x73	/* P9.26, i2c1_sda */
+					0x184 0x73	/* P9.24, i2c1_scl */
+				>;
+			};
+
+			/* All SPI0 pins are PULLUP, MODE0 */
+			bb_spi0_pins: pinmux_bb_spi0_pins {
+				pinctrl-single,pins = <
+					0x150 0x30	/* P9.22, spi0_sclk, INPUT */
+					0x154 0x30	/* P9.21, spi0_d0, INPUT */
+					0x158 0x10	/* P9.18, spi0_d1, OUTPUT */
+					0x15c 0x10	/* P9.17, spi0_cs0, OUTPUT */
+				>;
+			};
+
+			/* All GPIO pins are PULLUP, MODE7 */
+			bb_gpio_pins: pinmux_bb_gpio_pins {
+				pinctrl-single,pins = <
+					0x070 0x17	/* P9.11, gpio0_30, OUTPUT */
+					0x074 0x37	/* P9.13, gpio0_31, INPUT */
+				>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&i2c1>;	/* i2c1 is numbered correctly */
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&bb_i2c1a1_pins>;
+
+			/* The I2C bus is clocked at 400KHz */
+			clock-frequency = <400000>;
+
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			/* This is where we specify each I2C device on the
+			   bus. */
+			adafruit_fram: adafruit_fram0@50 {
+				/* Kernel driver for this device */
+				compatible = "at,24c256";
+				/* I2C bus address */
+				reg = <0x50>;
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&spi0>; /* spi0 is numbered correctly */
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&bb_spi0_pins>;
+
+
+			channel@0 {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				/* Kernel driver for this device */
+				compatible = "spidev";
+
+				reg = <0>;
+				/* Setting the max frequency to 16MHz */
+				spi-max-frequency = <16000000>;
+				spi-cpha;
+			};
+			channel@1 {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				/* Kernel driver for this device */
+				compatible = "spidev";
+
+				reg = <1>;
+				/* Setting the max frequency to 16MHz */
+				spi-max-frequency = <16000000>;
+			};
+		};
+	};
+};
+
