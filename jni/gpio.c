@@ -4,6 +4,8 @@
 
   Written by Andrew Henderson (hendersa@icculus.org)
 
+  Modified by Ankur Yadav (ankurayadav@gmail.com)
+
   This code is made available under the BSD license.
 **********************************************************/
 
@@ -24,6 +26,15 @@
 #define GPIO_OE_REG           0x134
 #define SYSFS_GPIO_DIR        "/sys/class/gpio"
 
+/*************Here Declare Your Pinmux Configuration*******************/
+/*******Example for declaring P8_03 AS GPIO DO*******
+#define P8_03_GPIO
+****************************************************/
+
+
+
+/****************************************************************/
+
 static char fsBuf[64];
 
 typedef struct {
@@ -33,75 +44,353 @@ typedef struct {
 } GPIOBit_t;
 
 static GPIOBit_t P8_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
- {  0, 0, 0},       /* P8_01, GND */
- {  0, 0, 0},       /* P8_02, GND */
- {  0, 0, 0},       /* P8_03, eMMC */
- {  0, 0, 0},       /* P8_04, eMMC */
- {  0, 0, 0},       /* P8_05, eMMC */
- {  0, 0, 0},       /* P8_06, eMMC */
- { 66, 2, 1 << 2},  /* P8_07, GPIO2[2] */
- { 67, 2, 1 << 3},  /* P8_08, GPIO2[3] */
- { 69, 2, 1 << 5},  /* P8_09, GPIO2[5] */
- { 68, 2, 1 << 4},  /* P8_10, GPIO2[4] */
- { 45, 1, 1 << 13}, /* P8_11, GPIO1[13] */
- { 44, 1, 1 << 12}, /* P8_12, GPIO1[12] */
- { 23, 0, 1 << 23}, /* P8_13, GPIO0[23] */
- { 26, 0, 1 << 26}, /* P8_14, GPIO0[26] */
- { 47, 1, 1 << 15}, /* P8_15, GPIO1[15] */
- { 46, 1, 1 << 14}, /* P8_16, GPIO1[14] */
- { 27, 0, 1 << 27}, /* P8_17, GPIO0[27] */
- { 65, 2, 1 << 1},  /* P8_18, GPIO2[1] */
- { 22, 0, 1 << 22}, /* P8_19, GPIO0[22] */
- {  0, 0, 0},       /* P8_20, eMMC */
- {  0, 0, 0},       /* P8_21, eMMC */
- {  0, 0, 0},       /* P8_22, eMMC */
- {  0, 0, 0},       /* P8_23, eMMC */
- {  0, 0, 0},       /* P8_24, eMMC */
- {  0, 0, 0},       /* P8_25, eMMC */
- { 61, 1, 1 << 29}, /* P8_26, GPIO1[29] */
- {  0, 0, 0},       /* P8_27, HDMI */
- {  0, 0, 0},       /* P8_28, HDMI */
- {  0, 0, 0},       /* P8_29, HDMI */
- {  0, 0, 0},       /* P8_30, HDMI */
- {  0, 0, 0},       /* P8_31, HDMI */
- {  0, 0, 0},       /* P8_32, HDMI */
- {  0, 0, 0},       /* P8_33, HDMI */
- {  0, 0, 0},       /* P8_34, HDMI */
- {  0, 0, 0},       /* P8_35, HDMI */
- {  0, 0, 0},       /* P8_36, HDMI */
- {  0, 0, 0},       /* P8_37, HDMI */
- {  0, 0, 0},       /* P8_38, HDMI */
- {  0, 0, 0},       /* P8_39, HDMI */
- {  0, 0, 0},       /* P8_40, HDMI */
- {  0, 0, 0},       /* P8_41, HDMI */
- {  0, 0, 0},       /* P8_42, HDMI */
- {  0, 0, 0},       /* P8_43, HDMI */
- {  0, 0, 0},       /* P8_44, HDMI */
- {  0, 0, 0},       /* P8_45, HDMI */
- {  0, 0, 0},       /* P8_46, HDMI */
+ {  0, 0, 0},       	/* P8_01, GND */
+ {  0, 0, 0},       	/* P8_02, GND */
+ 
+ #ifdef P8_03_GPIO
+	{ 38, 1, 1 << 6}	/* P8_03, GPIO1[6] */
+ #else
+ 	{  0, 0, 0},		/* P8_03, eMMC */
+ #endif
+
+ #ifdef P8_04_GPIO
+	{ 39, 1, 1 << 7}	/* P8_04, GPIO1[7] */
+ #else
+ 	{  0, 0, 0},		/* P8_04, eMMC */
+ #endif
+
+ #ifdef P8_05_GPIO
+	{ 34, 1, 1 << 2}	/* P8_05, GPIO1[2] */
+ #else
+ 	{  0, 0, 0},		/* P8_05, eMMC */
+ #endif
+
+ #ifdef P8_06_GPIO
+	{ 35, 1, 1 << 3}	/* P8_06, GPIO1[3] */
+ #else
+ 	{  0, 0, 0},		/* P8_06, eMMC */
+ #endif
+
+ #ifdef P8_07_GPIO
+ 	{ 66, 2, 1 << 2},   /* P8_07, GPIO2[2] */
+ #else
+ 	{  0, 0, 0},		/* P8_07,  */
+ #endif
+
+ #ifdef P8_08_GPIO
+ 	{ 67, 2, 1 << 3},	/* P8_08, GPIO2[3] */
+ #else
+ 	{  0, 0, 0},		/* P8_08,  */
+ #endif
+
+ #ifdef P8_09_GPIO
+ 	{ 69, 2, 1 << 5},	/* P8_09, GPIO2[5] */
+ #else
+ 	{  0, 0, 0},		/* P8_09,  */
+ #endif
+
+ #ifdef P8_10_GPIO
+ 	{ 68, 2, 1 << 4},	/* P8_10, GPIO2[4] */
+ #else
+ 	{  0, 0, 0},		/* P8_10,  */
+ #endif
+
+ #ifdef P8_11_GPIO
+ 	{ 45, 1, 1 << 13},	/* P8_11, GPIO1[13] */
+ #else
+ 	{  0, 0, 0},		/* P8_11,  */
+ #endif
+
+ #ifdef P8_12_GPIO
+ 	{ 44, 1, 1 << 12},	/* P8_12, GPIO1[12] */
+ #else
+ 	{  0, 0, 0},		/* P8_12,  */
+ #endif
+
+ #ifdef P8_13_GPIO
+ 	{ 23, 0, 1 << 23},	/* P8_13, GPIO0[23] */
+ #else
+ 	{  0, 0, 0},		/* P8_13,  */
+ #endif
+
+ #ifdef P8_14_GPIO
+ 	{ 26, 0, 1 << 26},	/* P8_14, GPIO0[26] */
+ #else
+ 	{  0, 0, 0},		/* P8_14,  */
+ #endif
+
+ #ifdef P8_15_GPIO
+ 	{ 47, 1, 1 << 15},	/* P8_15, GPIO1[15] */
+ #else
+ 	{  0, 0, 0},		/* P8_15,  */
+ #endif
+
+ #ifdef P8_16_GPIO
+ 	{ 46, 1, 1 << 14},	/* P8_16, GPIO1[14] */
+ #else
+ 	{  0, 0, 0},		/* P8_16,  */
+ #endif
+
+ #ifdef P8_17_GPIO
+ 	{ 27, 0, 1 << 27},	/* P8_17, GPIO0[27] */
+ #else
+ 	{  0, 0, 0},		/* P8_17,  */
+ #endif
+
+ #ifdef P8_18_GPIO
+ 	{ 65, 2, 1 << 1}, 	/* P8_18, GPIO2[1] */
+ #else
+ 	{  0, 0, 0},		/* P8_18,  */
+ #endif
+
+ #ifdef P8_19_GPIO
+ 	{ 22, 0, 1 << 22},	/* P8_19, GPIO0[22] */
+ #else
+ 	{  0, 0, 0},		/* P8_19,  */
+ #endif
+
+ #ifdef P8_19_GPIO
+ 	{ 22, 0, 1 << 22},	/* P8_19, GPIO0[22] */
+ #else
+ 	{  0, 0, 0},		/* P8_19,  */
+ #endif
+
+ #ifdef P8_20_GPIO
+ 	{ 63, 1, 1 << 31},	/* P8_20, GPIO1[31] */
+ #else
+ 	{  0, 0, 0},		/* P8_20, eMMC */
+ #endif
+
+ #ifdef P8_21_GPIO
+ 	{ 62, 1, 1 << 30},	/* P8_21, GPIO1[30] */
+ #else
+ 	{  0, 0, 0},		/* P8_21, eMMC */
+ #endif
+
+ #ifdef P8_22_GPIO
+ 	{ 37, 1, 1 << 5},	/* P8_22, GPIO1[5] */
+ #else
+ 	{  0, 0, 0},		/* P8_22, eMMC */
+ #endif
+
+ #ifdef P8_23_GPIO
+ 	{ 36, 1, 1 << 4},	/* P8_23, GPIO1[4] */
+ #else
+ 	{  0, 0, 0},		/* P8_23, eMMC */
+ #endif
+
+ #ifdef P8_24_GPIO
+ 	{ 33, 1, 1 << 1},	/* P8_24, GPIO1[1] */
+ #else
+ 	{  0, 0, 0},		/* P8_24, eMMC */
+ #endif
+
+ #ifdef P8_25_GPIO
+ 	{ 32, 1, 1 << 0},	/* P8_25, GPIO1[0] */
+ #else
+ 	{  0, 0, 0},		/* P8_25, eMMC */
+ #endif
+
+ #ifdef P8_26_GPIO
+ 	{ 61, 1, 1 << 29},	/* P8_26, GPIO1[29] */
+ #else
+ 	{  0, 0, 0},		/* P8_26,  */
+ #endif
+
+ #ifdef P8_27_GPIO
+ 	{ 86, 2, 1 << 22},	/* P8_27, GPIO2[22] */
+ #else
+ 	{  0, 0, 0},		/* P8_27, HDMI */
+ #endif
+
+ #ifdef P8_28_GPIO
+ 	{ 88, 2, 1 << 24},	/* P8_28, GPIO2[24] */
+ #else
+ 	{  0, 0, 0},		/* P8_28, HDMI */
+ #endif
+
+ #ifdef P8_29_GPIO
+ 	{ 87, 2, 1 << 23},	/* P8_29, GPIO2[23] */
+ #else
+ 	{  0, 0, 0},		/* P8_29, HDMI */
+ #endif
+ 
+ #ifdef P8_30_GPIO
+ 	{ 89, 2, 1 << 25},	/* P8_30, GPIO2[25] */
+ #else
+ 	{  0, 0, 0},		/* P8_30, HDMI */
+ #endif
+
+ #ifdef P8_31_GPIO
+ 	{ 10, 0, 1 << 10},	/* P8_31, GPIO0[10] */
+ #else
+ 	{  0, 0, 0},		/* P8_31, HDMI */
+ #endif
+
+ #ifdef P8_32_GPIO
+ 	{ 11, 0, 1 << 11},	/* P8_32, GPIO0[11] */
+ #else
+ 	{  0, 0, 0},		/* P8_32, HDMI */
+ #endif
+
+ #ifdef P8_33_GPIO
+ 	{ 9, 0, 1 << 9},	/* P8_33, GPIO0[9] */
+ #else
+ 	{  0, 0, 0},		/* P8_33, HDMI */
+ #endif
+
+ #ifdef P8_34_GPIO
+ 	{ 81, 2, 1 << 17},	/* P8_34, GPIO2[17] */
+ #else
+ 	{  0, 0, 0},		/* P8_34, HDMI */
+ #endif
+
+ #ifdef P8_35_GPIO
+ 	{ 8, 0, 1 << 8},	/* P8_35, GPIO0[8] */
+ #else
+ 	{  0, 0, 0},		/* P8_35, HDMI */
+ #endif
+
+ #ifdef P8_36_GPIO
+ 	{ 80, 2, 1 << 16},	/* P8_36, GPIO2[16] */
+ #else
+ 	{  0, 0, 0},		/* P8_36, HDMI */
+ #endif
+
+ #ifdef P8_37_GPIO
+ 	{ 78, 2, 1 << 14},	/* P8_37, GPIO2[14] */
+ #else
+ 	{  0, 0, 0},		/* P8_37, HDMI */
+ #endif
+
+ #ifdef P8_38_GPIO
+ 	{ 79, 2, 1 << 15},	/* P8_38, GPIO2[15] */
+ #else
+ 	{  0, 0, 0},		/* P8_38, HDMI */
+ #endif
+
+ #ifdef P8_39_GPIO
+ 	{ 76, 2, 1 << 12},	/* P8_39, GPIO2[12] */
+ #else
+ 	{  0, 0, 0},		/* P8_39, HDMI */
+ #endif
+
+ #ifdef P8_40_GPIO
+ 	{ 77, 2, 1 << 13},	/* P8_40, GPIO2[13] */
+ #else
+ 	{  0, 0, 0},		/* P8_40, HDMI */
+ #endif
+
+ #ifdef P8_41_GPIO
+ 	{ 74, 2, 1 << 10},	/* P8_41, GPIO2[10] */
+ #else
+ 	{  0, 0, 0},		/* P8_41, HDMI */
+ #endif
+
+ #ifdef P8_42_GPIO
+ 	{ 75, 2, 1 << 11},	/* P8_42, GPIO2[11] */
+ #else
+ 	{  0, 0, 0},		/* P8_42, HDMI */
+ #endif
+
+ #ifdef P8_43_GPIO
+ 	{ 72, 2, 1 << 8},	/* P8_43, GPIO2[8] */
+ #else
+ 	{  0, 0, 0},		/* P8_43, HDMI */
+ #endif
+
+ #ifdef P8_44_GPIO
+ 	{ 73, 2, 1 << 9},	/* P8_44, GPIO2[9] */
+ #else
+ 	{  0, 0, 0},		/* P8_44, HDMI */
+ #endif
+
+ #ifdef P8_45_GPIO
+ 	{ 70, 2, 1 << 6},	/* P8_45, GPIO2[6] */
+ #else
+ 	{  0, 0, 0},		/* P8_45, HDMI */
+ #endif
+
+ #ifdef P8_46_GPIO
+ 	{ 71, 2, 1 << 7},	/* P8_46, GPIO2[7] */
+ #else
+ 	{  0, 0, 0},		/* P8_46, HDMI */
+ #endif
+
 };
 
 static GPIOBit_t P9_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
- {  0, 0, 0},       /* P9_01, Power/Control */
- {  0, 0, 0},       /* P9_02, Power/Control */
- {  0, 0, 0},       /* P9_03, Power/Control */
- {  0, 0, 0},       /* P9_04, Power/Control */
- {  0, 0, 0},       /* P9_05, Power/Control */
- {  0, 0, 0},       /* P9_06, Power/Control */
- {  0, 0, 0},       /* P9_07, Power/Control */
- {  0, 0, 0},       /* P9_08, Power/Control */
- {  0, 0, 0},       /* P9_09, Power/Control */
- {  0, 0, 0},       /* P9_10, Power/Control */
- { 30, 0, 1 << 30}, /* P9_11, GPIO0[30] */
- { 60, 1, 1 << 28}, /* P9_12, GPIO1[28] */
- { 31, 0, 1 << 31}, /* P9_13, GPIO0[31] */
- { 50, 1, 1 << 18}, /* P9_14, GPIO1[18] */
- { 48, 1, 1 << 16}, /* P9_15, GPIO1[16] */
- { 51, 1, 1 << 19}, /* P9_16, GPIO1[19] */
- {  5, 0, 1 << 5},  /* P9_17, GPIO0[5] */
- {  4, 0, 1 << 4},  /* P9_18, GPIO0[4] */
- {  0, 0, 0},       /* P9_19, Capebus */
- {  0, 0 ,0},       /* P9_20, Capebus */
+ {  0, 0, 0},       	/* P9_01, Power/Control */
+ {  0, 0, 0},       	/* P9_02, Power/Control */
+ {  0, 0, 0},       	/* P9_03, Power/Control */
+ {  0, 0, 0},       	/* P9_04, Power/Control */
+ {  0, 0, 0},       	/* P9_05, Power/Control */
+ {  0, 0, 0},       	/* P9_06, Power/Control */
+ {  0, 0, 0},       	/* P9_07, Power/Control */
+ {  0, 0, 0},       	/* P9_08, Power/Control */
+ {  0, 0, 0},       	/* P9_09, Power/Control */
+ {  0, 0, 0},       	/* P9_10, Power/Control */
+
+ #ifdef P9_11_GPIO
+ 	{ 30, 0, 1 << 30},	/* P9_11, GPIO0[30] */
+ #else
+ 	{  0, 0, 0},		/* P9_11,  */
+ #endif
+
+ #ifdef P9_12_GPIO
+ 	{ 60, 1, 1 << 28},	/* P9_12, GPIO1[28] */
+ #else
+ 	{  0, 0, 0},		/* P9_12,  */
+ #endif
+
+ #ifdef P9_13_GPIO
+ 	{ 31, 0, 1 << 31},	/* P9_13, GPIO0[31] */
+ #else
+ 	{  0, 0, 0},		/* P9_13,  */
+ #endif
+
+ #ifdef P9_14_GPIO
+ 	{ 50, 1, 1 << 18},	/* P9_14, GPIO1[18] */
+ #else
+ 	{  0, 0, 0},		/* P9_14,  */
+ #endif
+
+ #ifdef P9_15_GPIO
+ 	{ 48, 1, 1 << 16},	/* P9_15, GPIO1[16] */
+ #else
+ 	{  0, 0, 0},		/* P9_15,  */
+ #endif
+
+ #ifdef P9_16_GPIO
+ 	{ 51, 1, 1 << 19},	/* P9_16, GPIO1[19] */
+ #else
+ 	{  0, 0, 0},		/* P9_16,  */
+ #endif
+
+ #ifdef P9_17_GPIO
+ 	{ 5, 0, 1 << 5}, 	/* P9_17, GPIO0[5] */
+ #else
+ 	{  0, 0, 0},		/* P9_17,  */
+ #endif
+
+ #ifdef P9_18_GPIO
+ 	{ 4, 0, 1 << 4}, 	/* P9_18, GPIO0[4] */
+ #else
+ 	{  0, 0, 0},		/* P9_18,  */
+ #endif
+
+ #ifdef P9_19_GPIO
+ 	{ 13, 0, 1 << 13},	/* P9_19, GPIO0[13] */
+ #else
+ 	{  0, 0, 0},		/* P9_19, Capebus */
+ #endif
+
+ #ifdef P9_20_GPIO
+ 	{ 12, 0, 1 << 12}, 	/* P9_20, GPIO0[12] */
+ #else
+ 	{  0, 0, 0},		/* P9_20, Capebus */
+ #endif
+
  { 49, 1, 1 << 17}, /* P9_23, GPIO1[17] */
  { 15, 0, 1 << 15}, /* P9_24, GPIO0[15] */
  {  0, 0, 0},       /* P9_25, McASP */
