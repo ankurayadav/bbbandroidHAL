@@ -24,6 +24,9 @@ extern int writeGPIO(const unsigned int header, const unsigned int pin,
   const unsigned int value);
 extern void closeGPIO(void);
 
+/* ADC interfacing functions */
+extern int readADC(unsigned int channel);
+
 /* I2C FRAM interfacing functions */
 extern int openFRAM(const unsigned int bus, const unsigned int address);
 extern int writeFRAM(const unsigned int offset, const unsigned int bufferSize,
