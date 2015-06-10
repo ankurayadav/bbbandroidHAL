@@ -21,8 +21,19 @@ extern int closePacktHAL(void);
 extern int openGPIO(const int useMmap);
 extern int readGPIO(const unsigned int header, const unsigned int pin);
 extern int writeGPIO(const unsigned int header, const unsigned int pin,
-  const unsigned int value);
+const unsigned int value);
 extern void closeGPIO(void);
+
+/* PWM interfacing functions */
+extern int pwmSetPeriod(unsigned int channel, unsigned int period_ns);
+extern unsigned int pwmGetPeriod(unsigned int channel);
+extern int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns);
+extern int pwmGetDutyCycle(unsigned int channel);
+extern int pwmSetPolarity(unsigned int channel, unsigned int polarity);
+extern int pwmGetPolarity(unsigned int channel);
+extern int pwmRun(unsigned int channel);
+extern int pwmStop(unsigned int channel);
+extern int pwmRunCheck(unsigned int channel);
 
 /* ADC interfacing functions */
 extern int readADC(unsigned int channel);

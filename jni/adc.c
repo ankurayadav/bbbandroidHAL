@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "packtHAL.h"
 
-#define SYSFS_ADC_DIR "/sys/bus/iio/devices/iio:device0/"
+#define SYSFS_ADC_DIR "/sys/bus/iio/devices/iio:device0"
 
 static char fsBuf[100];
 
