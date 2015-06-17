@@ -36,7 +36,7 @@ extern int pwmStop(unsigned int channel);
 extern int pwmRunCheck(unsigned int channel);
 
 /* ADC interfacing functions */
-extern int readADC(unsigned int channel);
+extern uint32_t readADC(unsigned int channel);
 
 /* I2C FRAM interfacing functions */
 extern int openFRAM(const unsigned int bus, const unsigned int address);
