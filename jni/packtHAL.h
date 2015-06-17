@@ -38,6 +38,16 @@ extern int pwmRunCheck(unsigned int channel);
 /* ADC interfacing functions */
 extern uint32_t readADC(unsigned int channel);
 
+/* I2C interfacing functions */
+extern int i2cOpenAdaptor(uint8_t adaptorNumber);
+extern int i2cSetSlave(int i2cFD, uint8_t address);
+extern void i2cClose(int i2cFD);
+extern int i2cSetAddress(int i2cFD, unsigned char add);
+extern int i2cWriteByte(int i2cFD, uint8_t byte);
+extern int i2cWriteBytes(int i2cFD, int length, uint8_t *bytes);
+extern int i2cReadByte(int i2cFD);
+extern int i2cReadBytes(int i2cFD, int length, uint8_t *buff);
+
 /* I2C FRAM interfacing functions */
 extern int openFRAM(const unsigned int bus, const unsigned int address);
 extern int writeFRAM(const unsigned int offset, const unsigned int bufferSize,
