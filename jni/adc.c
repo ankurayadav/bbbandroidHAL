@@ -15,11 +15,10 @@
 
 static char fsBuf[100];
 
-
 uint32_t readADC(unsigned int channel)
 {
 	FILE *fd;
-	char *value;
+	int value;
 	
 	snprintf(fsBuf, sizeof(fsBuf), SYSFS_ADC_DIR "/in_voltage%d_raw", channel);
 
@@ -27,11 +26,12 @@ uint32_t readADC(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
-  	fscanf(fd, "%s", value);
+  	fscanf(fd, "%d", &value);
+
   	fclose(fd);
 
-  	return atol(value);
+  	return value;
 }
