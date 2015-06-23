@@ -1,5 +1,5 @@
 /**********************************************************
-  ADC general purpose interface code for for raw voltage input 
+  ADC general purpose interface code for raw voltage input 
   from file system
 
   Written by Ankur Yadav (ankurayadav@gmail.com)

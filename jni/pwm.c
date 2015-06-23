@@ -1,6 +1,5 @@
 /**********************************************************
-  PWM general purpose interface code for for raw voltage input 
-  from file system
+  PWM general purpose interface code for file system
 
   Written by Ankur Yadav (ankurayadav@gmail.com)
 

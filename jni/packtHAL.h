@@ -48,6 +48,17 @@ extern int i2cWriteBytes(int i2cFD, int length, uint8_t *bytes);
 extern int i2cReadByte(int i2cFD);
 extern int i2cReadBytes(int i2cFD, int length, uint8_t *buff);
 
+/* SPI interfacing functions */
+extern int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw);
+extern unsigned char spiReadByte(int spiFD, unsigned int regAdd);
+extern unsigned char* spiReadBytes(int spiFD, unsigned int len, unsigned int startAdd);
+extern int spiWriteRegByte(int spiFD, unsigned int regAdd, unsigned char data);
+extern int spiWriteBytes(int spiFD, unsigned char data[], int len);
+extern int spiSetMode(int spiFD, uint8_t mode);
+extern int spiSetSpeed(int spiFD, uint32_t speed);
+extern int spiSetBitsPerWord(int spiFD, uint8_t bpw);
+extern void spiClose(int spiFD);
+
 /* I2C FRAM interfacing functions */
 extern int openFRAM(const unsigned int bus, const unsigned int address);
 extern int writeFRAM(const unsigned int offset, const unsigned int bufferSize,
