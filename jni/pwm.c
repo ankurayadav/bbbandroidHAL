@@ -36,7 +36,7 @@ int pwmSetPeriod(unsigned int channel, unsigned int period_ns)
 unsigned int pwmGetPeriod(unsigned int channel)
 {
 	FILE *fd;
-	char *value;
+	int value;
 	
 	snprintf(fsBuf, sizeof(fsBuf), SYSFS_PWM_DIR "/pwm%d/period_ns", channel);
 
@@ -47,10 +47,10 @@ unsigned int pwmGetPeriod(unsigned int channel)
 		return 0;
 	}
 
-  	fscanf(fd, "%s", value);
+  	fscanf(fd, "%d", &value);
   	fclose(fd);
 
-  	return atol(value);
+  	return value;
 }
 
 int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns)
@@ -75,7 +75,7 @@ int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns)
 int pwmGetDutyCycle(unsigned int channel)
 {
 	FILE *fd;
-	char *value;
+	int value;
 	
 	snprintf(fsBuf, sizeof(fsBuf), SYSFS_PWM_DIR "/pwm%d/duty_ns", channel);
 
@@ -86,10 +86,10 @@ int pwmGetDutyCycle(unsigned int channel)
 		return 0;
 	}
 
-  	fscanf(fd, "%s", value);
+  	fscanf(fd, "%d", &value);
   	fclose(fd);
 
-  	return atol(value);
+  	return value;
 }
 
 int pwmSetPolarity(unsigned int channel, unsigned int polarity)
@@ -114,7 +114,7 @@ int pwmSetPolarity(unsigned int channel, unsigned int polarity)
 int pwmGetPolarity(unsigned int channel)
 {
 	FILE *fd;
-	char *value;
+	int value;
 	
 	snprintf(fsBuf, sizeof(fsBuf), SYSFS_PWM_DIR "/pwm%d/polarity", channel);
 
@@ -125,10 +125,10 @@ int pwmGetPolarity(unsigned int channel)
 		return 0;
 	}
 
-  	fscanf(fd, "%s", value);
+  	fscanf(fd, "%d", &value);
   	fclose(fd);
 
-  	return atol(value);
+  	return value;
 }
 
 int pwmRun(unsigned int channel)
@@ -172,7 +172,7 @@ int pwmStop(unsigned int channel)
 int pwmRunCheck(unsigned int channel)
 {
 	FILE *fd;
-	char *value;
+	int value;
 	
 	snprintf(fsBuf, sizeof(fsBuf), SYSFS_PWM_DIR "/pwm%d/run", channel);
 
@@ -183,8 +183,8 @@ int pwmRunCheck(unsigned int channel)
 		return 0;
 	}
 
-  	fscanf(fd, "%s", value);
+  	fscanf(fd, "%d", &value);
   	fclose(fd);
 
-  	return atol(value);
+  	return value;
 }
