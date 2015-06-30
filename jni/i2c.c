@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <fcntl.h> 
 #include <sys/ioctl.h>
-#include "i2c-dev.h"
+#include <linux/i2c-dev.h>
 #include "packtHAL.h"
 
 #define MAX_PATH 50

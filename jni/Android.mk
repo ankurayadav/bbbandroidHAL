@@ -5,7 +5,7 @@ LOCAL_CFLAGS += -Wall
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/lib -llog -g
 LOCAL_C_INCLUDES := bionic
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
-LOCAL_SRC_FILES:= bmp183.c fram.c gpio.c adc.c pwm.c i2c.c spi.c main.c
+LOCAL_SRC_FILES:= bmp183.c fram.c gpio.c adc.c pwm.c i2c.c spi.c can.c main.c
 LOCAL_MODULE := testHal
 include $(BUILD_EXECUTABLE)
 endif  # TARGET_SIMULATOR != true
