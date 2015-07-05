@@ -42,11 +42,7 @@ int i2cSetSlave(int i2cFD, uint8_t address)
 
 int i2cSetAddress(int i2cFD, unsigned char add)
 {
-	unsigned char buff[1];
-
-   	buff[0]=add;
-   	
-   	if (write(i2cFD, buff, 1)!=1)
+   	if (i2c_smbus_write_byte(i2cFD, add) < 0)
    	{
    	   return -1;
    	}
@@ -79,9 +75,11 @@ int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes)
 	return 0;
 }
 
-int i2cReadByte(int i2cFD)
+int i2cReadByte(int i2cFD, unsigned char add)
 {
 	int byte;
+
+	i2cSetAddress(i2cFD, add);
 
 	if ((byte = i2c_smbus_read_byte(i2cFD)) < 0) 
 	{
@@ -91,9 +89,9 @@ int i2cReadByte(int i2cFD)
 	return byte;
 }
 
-int i2cReadBytes(int i2cFD, int length, uint8_t *buff)
+int i2cReadBytes(int i2cFD, unsigned char add, int length, uint8_t *buff)
 {
-	if (read(i2cFD, buff, length) == length)
+	if(i2c_smbus_read_i2c_block_data(i2cFD, add, length, buff) < 0)
 	{	
 		return -1;
 	}
