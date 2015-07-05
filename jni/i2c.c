@@ -54,19 +54,24 @@ int i2cSetAddress(int i2cFD, unsigned char add)
    	return 0;
 }
 
-int i2cWriteByte(int i2cFD, uint8_t byte)
+int i2cWriteByte(int i2cFD, unsigned char add, unsigned char byte)
 {
-	if (i2c_smbus_write_byte(i2cFD, byte ) < 0) 
+	unsigned char buff[2];
+   	
+   	buff[0] = add;
+   	buff[1] = byte;
+   
+	if(write(i2cFD, buff, 2)!=2)
 	{
-		return -1;	
+		return -1;
 	}
 
 	return 0;
 }
 
-int i2cWriteBytes(int i2cFD, int length, uint8_t *bytes)
+int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes)
 {
-	if(i2c_smbus_write_i2c_block_data(i2cFD, bytes[0], length-1, bytes+1) < 0)
+	if(i2c_smbus_write_i2c_block_data(i2cFD, add, length, bytes) < 0)
 	{
 		return -1;
 	}
