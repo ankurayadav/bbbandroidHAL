@@ -43,10 +43,10 @@ extern int i2cOpenAdaptor(uint8_t adaptorNumber);
 extern int i2cSetSlave(int i2cFD, uint8_t address);
 extern void i2cClose(int i2cFD);
 extern int i2cSetAddress(int i2cFD, unsigned char add);
-extern int i2cWriteByte(int i2cFD, uint8_t byte);
-extern int i2cWriteBytes(int i2cFD, int length, uint8_t *bytes);
-extern int i2cReadByte(int i2cFD);
-extern int i2cReadBytes(int i2cFD, int length, uint8_t *buff);
+extern int i2cWriteByte(int i2cFD, unsigned char add, unsigned char byte);
+extern int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes);
+extern int i2cReadByte(int i2cFD, unsigned char add);
+extern int i2cReadBytes(int i2cFD, unsigned char add, int length, uint8_t *buff);
 
 /* SPI interfacing functions */
 extern int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw);
