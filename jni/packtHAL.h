@@ -59,6 +59,12 @@ extern int spiSetSpeed(int spiFD, uint32_t speed);
 extern int spiSetBitsPerWord(int spiFD, uint8_t bpw);
 extern void spiClose(int spiFD);
 
+/* UART interfacing functions */
+extern int uartOpen(unsigned int device, unsigned int bdrate);
+extern int uartWrite(int uartFD, int length, unsigned char *bytes);
+extern int uartRead(int uartFD, int length, unsigned char *bytes);
+extern void uartClose(int uartFD);
+
 /* I2C FRAM interfacing functions */
 extern int openFRAM(const unsigned int bus, const unsigned int address);
 extern int writeFRAM(const unsigned int offset, const unsigned int bufferSize,
