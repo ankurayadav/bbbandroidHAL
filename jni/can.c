@@ -13,6 +13,7 @@
 #include <net/if.h>
 #include <linux/can.h>
 #include <linux/can/raw.h>
+#include "bbbandroidHAL.h"
 
 #ifndef PF_CAN
 #define PF_CAN 29

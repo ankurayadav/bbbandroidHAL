@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
+#include "bbbandroidHAL.h"
 
 #define MAX_PATH 50
 

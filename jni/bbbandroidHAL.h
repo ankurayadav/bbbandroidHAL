@@ -1,21 +1,22 @@
 /**********************************************************
-  Main PacktHAL header file
+  Main bbbandroidHAL header file
 
   Written by Andrew Henderson (hendersa@icculus.org)
+  Modified by Ankur Yadav (ankurayadav@gmail.com)
 
   This code is made available under the BSD license.
 **********************************************************/
 
-#ifndef __PACKTHAL_H__
-#define __PACKTHAL_H__
+#ifndef __BBBANDROIDHAL_H__
+#define __BBBANDROIDHAL_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
 
 /* Library init/shutdown */
-extern int openPacktHAL(void);
-extern int closePacktHAL(void);
+extern int openBBBAndroidHAL(void);
+extern int closeBBBAndroidHAL(void);
 
 /* GPIO interfacing functions */
 extern int openGPIO(const int useMmap);
@@ -65,21 +66,7 @@ extern int uartWrite(int uartFD, int length, unsigned char *bytes);
 extern int uartRead(int uartFD, int length, unsigned char *bytes);
 extern void uartClose(int uartFD);
 
-/* I2C FRAM interfacing functions */
-extern int openFRAM(const unsigned int bus, const unsigned int address);
-extern int writeFRAM(const unsigned int offset, const unsigned int bufferSize,
-  const char *buffer); 
-extern int readFRAM(const unsigned int offset, const unsigned int bufferSize,
-  const char *buffer);
-extern int closeFRAM(void);
-
-/* SPI BMP183 interfacing functions */
-extern int openSensor(void);
-extern float getSensorTemperature(void);
-extern float getSensorPressure(void);
-extern int closeSensor(void);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
-#endif /* __PACKTHAL_H__ */
-
+#endif /* __BBBANDROIDHAL_H__ */

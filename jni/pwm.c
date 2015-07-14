@@ -7,7 +7,7 @@
 **********************************************************/
 
 #include <stdio.h>
-#include "packtHAL.h"
+#include "bbbandroidHAL.h"
 
 #define SYSFS_PWM_DIR "/sys/class/pwm"
 

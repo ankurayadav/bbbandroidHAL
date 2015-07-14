@@ -18,7 +18,7 @@
 #include <fcntl.h> 
 #include <errno.h>
 #include <string.h>
-#include "packtHAL.h"
+#include "bbbandroidHAL.h"
 
 #define TOTAL_PINS_PER_HEADER 46
 #define GPIO_DATA_OUT_REG     0x13C

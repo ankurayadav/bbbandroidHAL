@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include "packtHAL.h"
+#include "bbbandroidHAL.h"
 
 #define SYSFS_ADC_DIR "/sys/bus/iio/devices/iio:device0"
 

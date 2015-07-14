@@ -9,6 +9,7 @@
 #include <termios.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "bbbandroidHAL.h"
 
 #define MAX_PATH 50
 
