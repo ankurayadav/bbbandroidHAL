@@ -60,6 +60,13 @@ extern int spiSetSpeed(int spiFD, uint32_t speed);
 extern int spiSetBitsPerWord(int spiFD, uint8_t bpw);
 extern void spiClose(int spiFD);
 
+/* CAN interfacing functions */
+extern int canOpenSocket(int socket_type, int protocol);
+extern int canOpenRaw(char *port);
+extern unsigned char* canReadBytes(int fd);
+extern int canSendBytes(int fd, unsigned char data[], unsigned int no_bytes);
+extern void canClose(int fd);
+
 /* UART interfacing functions */
 extern int uartOpen(unsigned int device, unsigned int bdrate);
 extern int uartWrite(int uartFD, int length, unsigned char *bytes);
