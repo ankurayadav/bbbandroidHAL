@@ -7,6 +7,8 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+#include <stdio.h>
+
 #ifndef __BBBANDROIDHAL_H__
 #define __BBBANDROIDHAL_H__
 
