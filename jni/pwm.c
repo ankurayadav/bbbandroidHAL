@@ -23,13 +23,13 @@ int pwmSetPeriod(unsigned int channel, unsigned int period_ns)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
 	fprintf(fd, "%d", period_ns);
 	fclose(fd);
 
-	return 1;
+	return 0;
 }
 
 unsigned int pwmGetPeriod(unsigned int channel)
@@ -43,7 +43,7 @@ unsigned int pwmGetPeriod(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
   	fscanf(fd, "%d", &value);
@@ -62,13 +62,13 @@ int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
 	fprintf(fd, "%d", duration_ns);
 	fclose(fd);
 
-	return 1;
+	return 0;
 }
 
 int pwmGetDutyCycle(unsigned int channel)
@@ -82,7 +82,7 @@ int pwmGetDutyCycle(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
   	fscanf(fd, "%d", &value);
@@ -101,13 +101,13 @@ int pwmSetPolarity(unsigned int channel, unsigned int polarity)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
 	fprintf(fd, "%d", polarity);
 	fclose(fd);
 
-	return 1;
+	return 0;
 }
 
 int pwmGetPolarity(unsigned int channel)
@@ -121,7 +121,7 @@ int pwmGetPolarity(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
   	fscanf(fd, "%d", &value);
@@ -140,13 +140,13 @@ int pwmRun(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
 	fprintf(fd, "%d", 1);
 	fclose(fd);
 
-	return 1;	
+	return 0;	
 }
 
 int pwmStop(unsigned int channel)
@@ -159,13 +159,13 @@ int pwmStop(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
 	fprintf(fd, "%d", 0);
 	fclose(fd);
 
-	return 1;	
+	return 0;	
 }
 
 int pwmRunCheck(unsigned int channel)
@@ -179,7 +179,7 @@ int pwmRunCheck(unsigned int channel)
 
 	if (fd == NULL) 
 	{
-		return 0;
+		return -1;
 	}
 
   	fscanf(fd, "%d", &value);

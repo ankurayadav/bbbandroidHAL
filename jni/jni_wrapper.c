@@ -47,6 +47,144 @@ void JAVA_CLASS_PATH(writeGPIO)(JNIEnv *env, jobject this, jint header, jint pin
 }
 /* End the JNI wrapper functions for the GPIO app */
 
+/* Begin the JNI wrapper functions for the PWM app */
+jboolean JAVA_CLASS_PATH(pwmSetPeriod)(JNIEnv *env, jobject this, jint channel, jint period_ns)
+{
+	jint ret;
+	ret = pwmSetPeriod(channel, period_ns) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmSetPeriod(%d, %d) failed!", (unsigned int) channel, (unsigned int) period_ns);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmSetPeriod(%d, %d) succeeded", (unsigned int) channel, (unsigned int) period_ns);
+	}
+
+	return JNI_TRUE;
+}
+
+jint JAVA_CLASS_PATH(pwmGetPeriod)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmGetPeriod(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmGetPeriod(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmGetPeriod(%d) succeeded", (unsigned int) channel);
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(pwmSetDutyCycle)(JNIEnv *env, jobject this, jint channel, jint duration_ns)
+{
+	jint ret;
+	ret = pwmSetDutyCycle(channel, duration_ns) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmSetDutyCycle(%d, %d) failed!", (unsigned int) channel, (unsigned int) duration_ns);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmSetDutyCycle(%d, %d) succeeded", (unsigned int) channel, (unsigned int) duration_ns);
+	}
+
+	return JNI_TRUE;
+}
+
+jint JAVA_CLASS_PATH(pwmGetDutyCycle)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmGetDutyCycle(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmGetDutyCycle(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmGetDutyCycle(%d) succeeded", (unsigned int) channel);
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(pwmSetPolarity)(JNIEnv *env, jobject this, jint channel, jint polarity)
+{
+	jint ret;
+	ret = pwmSetPolarity(channel, polarity) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmSetPolarity(%d, %d) failed!", (unsigned int) channel, (unsigned int) polarity);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmSetPolarity(%d, %d) succeeded", (unsigned int) channel, (unsigned int) polarity);
+	}
+
+	return JNI_TRUE;
+}
+
+jint JAVA_CLASS_PATH(pwmGetPolarity)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmGetPolarity(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmGetPolarity(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmGetPolarity(%d) succeeded", (unsigned int) channel);
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(pwmRun)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmRun(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmRun(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmRun(%d) succeeded", (unsigned int) channel);
+	}
+
+	return JNI_TRUE;
+}
+
+jboolean JAVA_CLASS_PATH(pwmStop)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmStop(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmStop(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmStop(%d) succeeded", (unsigned int) channel);
+	}
+
+	return JNI_TRUE;
+}
+
+jint JAVA_CLASS_PATH(pwmRunCheck)(JNIEnv *env, jobject this, jint channel)
+{
+	jint ret;
+	ret = pwmRunCheck(channel) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "pwmRunCheck(%d) failed!", (unsigned int) channel);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "pwmRunCheck(%d) succeeded", (unsigned int) channel);
+	}
+
+	return ret;
+}
+
+/* End the JNI wrapper functions for the PWM app */
+
 /* Begin the JNI wrapper functions for the ADC app */
 
 jint JAVA_CLASS_PATH(readADC)(JNIEnv *env, jobject this, jint channel)
