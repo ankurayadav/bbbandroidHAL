@@ -1,3 +1,11 @@
+/**********************************************************
+  JNI general purpose interface code for bbbandroidHAL
+
+  Written by Ankur Yadav (ankurayadav@gmail.com)
+
+  This code is made available under the BSD license.
+**********************************************************/
+
 #include <jni.h>
 #include <string.h>
 #include <stdio.h>
@@ -242,10 +250,10 @@ jboolean JAVA_CLASS_PATH(i2cWriteByte)(JNIEnv *env, jobject this, jint i2cFD, jb
 	ret = i2cWriteByte(i2cFD, add, byte) ;
 
 	if ( ret == -1 ) {
-		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cWriteByte(%d, %d) failed!", (unsigned int) i2cFD, (unsigned int) byte);
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cWriteByte(%d, %d, %d) failed!", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) byte);
 		return JNI_FALSE;
 	} else {
-		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cWriteByte(%d, %d) succeeded", (unsigned int) i2cFD, (unsigned int) byte);
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cWriteByte(%d, %d, %d) succeeded", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) byte);
 	}
 
 	return JNI_TRUE;
@@ -270,10 +278,10 @@ jboolean JAVA_CLASS_PATH(i2cWriteBytes)(JNIEnv *env, jobject this, jint i2cFD,jb
 	ret = i2cWriteBytes(i2cFD, add, length, bytes) ;
 
 	if ( ret == -1 ) {
-		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cWriteBytes(%d, %d, bytearray) failed!", (unsigned int) i2cFD, (unsigned int) length);
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cWriteBytes(%d, %d, %d, bytearray) failed!", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) length);
 		return JNI_FALSE;
 	} else {
-		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cWriteBytes(%d, %d, bytearray) succeeded", (unsigned int) i2cFD, (unsigned int) length);
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cWriteBytes(%d, %d, %d, bytearray) succeeded", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) length);
 	}
 
 	return JNI_TRUE;
@@ -285,10 +293,10 @@ jint JAVA_CLASS_PATH(i2cReadByte)(JNIEnv *env, jobject this, jint i2cFD, jbyte a
 	ret = i2cReadByte(i2cFD, add) ;
 
 	if ( ret == -1 ) {
-		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cReadByte(%d) failed!", (unsigned int) i2cFD);
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cReadByte(%d, %d) failed!", (unsigned int) i2cFD, (unsigned int) add);
 		return -1;
 	} else {
-		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cReadByte(%d) succeeded", (unsigned int) i2cFD);
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cReadByte(%d, %d) succeeded", (unsigned int) i2cFD, (unsigned int) add);
 	}
 
 	return ret;
@@ -303,10 +311,10 @@ jboolean JAVA_CLASS_PATH(i2cReadBytes)(JNIEnv *env, jobject this, jint i2cFD, jb
 	ret = i2cReadBytes(i2cFD, add, length, bytes) ;
 
 	if ( ret == -1 ) {
-		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cReadBytes(%d, %d, bytearray) failed!", (unsigned int) i2cFD, (unsigned int) length);
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "i2cReadBytes(%d, %d, %d, bytearray) failed!", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) length);
 		return JNI_FALSE;
 	} else {
-		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cReadBytes(%d, %d, bytearray) succeeded", (unsigned int) i2cFD, (unsigned int) length);
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cReadBytes(%d, %d, %d, bytearray) succeeded", (unsigned int) i2cFD, (unsigned int) add, (unsigned int) length);
 	}
 
 	jint* bufferPtr = (*env)->GetIntArrayElements(env, barray, NULL);
@@ -325,10 +333,92 @@ void JAVA_CLASS_PATH(i2cClose)(JNIEnv *env, jobject this, jint i2cFD)
 {
 	i2cClose(i2cFD) ;
 
-	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cClose(%d, bytearray) succeeded", (unsigned int) i2cFD);
+	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "i2cClose(%d) succeeded", (unsigned int) i2cFD);
 
 }
 
 /* End the JNI wrapper funtions for the I2C app */
+
+/* Begin the JNI wrapper functions for the UART app */
+
+jint JAVA_CLASS_PATH(uartOpen)(JNIEnv *env, jobject this, jint device, jint bdrate)
+{
+	jint ret;
+	ret = uartOpen(device, bdrate) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "uartOpen(%d, %d) failed!", (unsigned int) device, (unsigned int) bdrate);
+		ret = -1;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "uartOpen(%d, %d) succeeded", (unsigned int) device, (unsigned int) bdrate);
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(uartWrite)(JNIEnv *env, jobject this, jint uartFD, jint length, jbyteArray barray)
+{
+	jint ret;
+	int i;
+
+	jbyte* bufferPtr = (*env)->GetByteArrayElements(env, barray, NULL);
+
+	unsigned char bytes[length] ;
+
+	for(i=0; i<length; i++)
+	{
+		bytes[i] = bufferPtr[i];
+	}
+
+	(*env)->ReleaseByteArrayElements(env, barray, bufferPtr, 0);
+
+	ret = uartWrite(uartFD, length, bytes) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "uartWrite(%d, %d, bytearray) failed!", (unsigned int) uartFD, (unsigned int) length);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "uartWrite(%d, %d, bytearray) succeeded", (unsigned int) uartFD, (unsigned int) length);
+	}
+
+	return JNI_TRUE;
+}
+
+jboolean JAVA_CLASS_PATH(uartRead)(JNIEnv *env, jobject this, jint uartFD, jint length, jintArray barray)
+{
+	jint ret;
+	int i;
+	unsigned char bytes[length] ;
+
+	ret = uartRead(uartFD, length, bytes) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "uartRead(%d, %d, bytearray) failed!", (unsigned int) uartFD, (unsigned int) length);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "uartRead(%d, %d, bytearray) succeeded", (unsigned int) uartFD, (unsigned int) length);
+	}
+
+	jint* bufferPtr = (*env)->GetIntArrayElements(env, barray, NULL);
+
+	for(i=0; i<length; i++)
+	{
+		bufferPtr[i] = bytes[i];
+	}
+
+	(*env)->ReleaseIntArrayElements(env, barray, bufferPtr, 0);
+
+	return JNI_TRUE;
+}
+
+void JAVA_CLASS_PATH(uartClose)(JNIEnv *env, jobject this, jint uartFD)
+{
+	uartClose(uartFD) ;
+
+	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "uartClose(%d) succeeded", (unsigned int) uartFD);
+
+}
+
+/* End the JNI wrapper funtions for the UART app */
 
 /* End the JNI wrapper functions for the Complete app */
