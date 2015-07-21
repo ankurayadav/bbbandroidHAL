@@ -58,7 +58,7 @@ int uartOpen(unsigned int device, unsigned int bdrate)
 	char fsBuf[MAX_PATH] ;
 	int uartFD ;
 
-	snprintf(fsBuf, sizeof(fsBuf), "/dev//dev/ttyO%d", device);
+	snprintf(fsBuf, sizeof(fsBuf), "/dev/ttyO%d", device);
 
 	uartFD = open(fsBuf, O_RDWR | O_NOCTTY | O_NDELAY);
 
