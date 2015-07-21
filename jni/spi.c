@@ -26,6 +26,8 @@ int spiTransfer(int spiFD, unsigned char tx[], unsigned char rx[], int len)
 	transfer.tx_buf = (unsigned long) tx;
 	transfer.rx_buf = (unsigned long) rx;
 	transfer.len = len;
+	transfer.speed_hz = 10000;
+	transfer.bits_per_word = 8;
 
 	if(ioctl(spiFD, SPI_IOC_MESSAGE(1), &transfer)<0)
 	{
@@ -85,12 +87,12 @@ int spiWriteBytes(int spiFD, unsigned char data[], int len)
 
 int spiSetMode(int spiFD, uint8_t mode)
 {
-	if (ioctl(spiFD, SPI_IOC_WR_MODE, mode)==-1)
+	if (ioctl(spiFD, SPI_IOC_WR_MODE, &mode)==-1)
 	{
 		return -1;
 	}
 
-	if (ioctl(spiFD, SPI_IOC_RD_MODE, mode)==-1)
+	if (ioctl(spiFD, SPI_IOC_RD_MODE, &mode)==-1)
 	{
 		return -1;
 	}
@@ -100,12 +102,12 @@ int spiSetMode(int spiFD, uint8_t mode)
 
 int spiSetSpeed(int spiFD, uint32_t speed)
 {
-	if (ioctl(spiFD, SPI_IOC_WR_MAX_SPEED_HZ, speed)==-1)
+	if (ioctl(spiFD, SPI_IOC_WR_MAX_SPEED_HZ, &speed)==-1)
 	{
 		return -1;
 	}
 
-	if (ioctl(spiFD, SPI_IOC_RD_MAX_SPEED_HZ, speed)==-1)
+	if (ioctl(spiFD, SPI_IOC_RD_MAX_SPEED_HZ, &speed)==-1)
 	{
 		return -1;
 	}
@@ -115,12 +117,12 @@ int spiSetSpeed(int spiFD, uint32_t speed)
 
 int spiSetBitsPerWord(int spiFD, uint8_t bpw)
 {
-	if (ioctl(spiFD, SPI_IOC_WR_BITS_PER_WORD, bpw)==-1)
+	if (ioctl(spiFD, SPI_IOC_WR_BITS_PER_WORD, &bpw)==-1)
 	{
 		return -1;
 	}
 
-	if (ioctl(spiFD, SPI_IOC_RD_BITS_PER_WORD, bpw)==-1)
+	if (ioctl(spiFD, SPI_IOC_RD_BITS_PER_WORD, &bpw)==-1)
 	{
 		return -1;
 	}
