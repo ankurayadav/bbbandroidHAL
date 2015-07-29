@@ -64,9 +64,9 @@ extern void spiClose(int spiFD);
 
 /* CAN interfacing functions */
 extern int canOpenSocket(int socket_type, int protocol);
-extern int canOpenRaw(char *port);
-extern unsigned char* canReadBytes(int fd);
-extern int canSendBytes(int fd, unsigned char data[], unsigned int no_bytes);
+extern int canOpenRaw(const char *port);
+extern unsigned char* canReadBytes(int fd, int *length);
+extern int canSendBytes(int fd, unsigned int no_bytes, unsigned char data[]);
 extern void canClose(int fd);
 
 /* UART interfacing functions */

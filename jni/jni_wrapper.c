@@ -13,7 +13,7 @@
 
 #include "bbbandroidHAL.h"
 
-#define JAVA_CLASS_PATH(funtion_name) Java_com_packt_gpio_MainActivity_##funtion_name
+#define JAVA_CLASS_PATH(funtion_name) Java_com_bbbandroid_gpio_MainActivity_##funtion_name
 
 #define BBBANDROID_NATIVE_TAG "NDK_BBBAndroidApplication"
 #define BUFFER_SIZE 64
@@ -420,5 +420,83 @@ void JAVA_CLASS_PATH(uartClose)(JNIEnv *env, jobject this, jint uartFD)
 }
 
 /* End the JNI wrapper funtions for the UART app */
+
+/* Begin the JNI wrapper functions for the CAN app */
+
+jint JAVA_CLASS_PATH(canOpenRaw)(JNIEnv *env, jobject this, jstring port)
+{
+	jint ret;
+
+	const char *p;
+    p = (*env)->GetStringUTFChars( env, port , NULL ) ;
+
+	ret = canOpenRaw(p) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "canOpenRaw(%s) failed!", p);
+		ret = -1;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "canOpenRaw(%s) succeeded", p);
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(canSendBytes)(JNIEnv *env, jobject this, jint canFD, jint length, jbyteArray barray)
+{
+	jint ret;
+	int i;
+
+	jbyte* bufferPtr = (*env)->GetByteArrayElements(env, barray, NULL);
+
+	unsigned char bytes[length] ;
+
+	for(i=0; i<length; i++)
+	{
+		bytes[i] = bufferPtr[i];
+	}
+
+	(*env)->ReleaseByteArrayElements(env, barray, bufferPtr, 0);
+
+	ret = canSendBytes(canFD, length, bytes) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "canSendBytes(%d, %d, bytearray) failed!", (unsigned int) canFD, (unsigned int) length);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "canSendBytes(%d, %d, bytearray) succeeded", (unsigned int) canFD, (unsigned int) length);
+	}
+
+	return JNI_TRUE;
+}
+
+jbyteArray JAVA_CLASS_PATH(canReadBytes)(JNIEnv *env, jobject this, jint canFD)
+{
+	unsigned char *value ;
+	int length;
+	value = canReadBytes(canFD, &length) ;
+
+    if(value!=NULL)
+    {
+    	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "canReadBytes(%d) succeeded", (unsigned int) canFD);
+    	
+		jbyteArray barray = (*env)->NewByteArray(env, length);
+    	(*env)->SetByteArrayRegion(env, barray, 0, length, value);
+
+		return barray;
+    }
+
+	return NULL;
+}
+
+void JAVA_CLASS_PATH(canClose)(JNIEnv *env, jobject this, jint canFD)
+{
+	canClose(canFD) ;
+
+	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "canClose(%d) succeeded", (unsigned int) canFD);
+
+}
+
+/* End the JNI wrapper funtions for the CAN app */
 
 /* End the JNI wrapper functions for the Complete app */

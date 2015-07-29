@@ -25,60 +25,78 @@
 
 int canOpenSocket(int socket_type, int protocol)
 {
-	int fd = socket(PF_CAN, socket_type, protocol);
+	int canFD = socket(PF_CAN, socket_type, protocol);
 
-	if (fd<0)
+	if (canFD<0)
 	{
 		return -1;
 	}
 
-	return fd;
+	return canFD;
 }
 
-int canOpenRaw(char *port)
+int canOpenRaw(const char *port)
 {
 	struct ifreq ifr;
 	struct sockaddr_can addr;
-	int fd = canOpenSocket(SOCK_RAW, CAN_RAW);  /* Creating socket for can */
+	int canFD = canOpenSocket(SOCK_RAW, CAN_RAW);  /* Creating socket for can */
 
 	addr.can_family = AF_CAN;
 	strcpy(ifr.ifr_name, port);
 
-	if (ioctl(fd, SIOCGIFINDEX, &ifr) < 0)    /* Locating the interface (ifr.ifr_ifindex gets filled with device index) */
+	if (ioctl(canFD, SIOCGIFINDEX, &ifr) < 0)    /* Locating the interface (ifr.ifr_ifindex gets filled with device index) */
     {
         return (-1);
     }
 
     addr.can_ifindex = ifr.ifr_ifindex;  
 
-    if (bind(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) /* Bind the socket with can interface */
+    if (bind(canFD, (struct sockaddr *)&addr, sizeof(addr)) < 0) /* Bind the socket with can interface */
     {
         return (-1);
     }
 
-	return fd;
+	return canFD;
 }
 
-unsigned char* canReadBytes(int fd)
+unsigned char* canReadBytes(int fd, int *length)
 {
 	struct can_frame frame;
 
-    read(fd, &frame, sizeof(struct can_frame));
+	struct timeval timeout = {1,0};
+	
+	fd_set set;
+	FD_ZERO(&set);
+	FD_SET(fd, &set);
 
-    unsigned char* data = (unsigned char *)malloc(sizeof(unsigned char)*(frame.can_dlc+1));
-
-    data[0] = frame.data[0];
-    int i=1;
-	while(i<frame.can_dlc)
+	if(select((fd + 1), &set, NULL, NULL, &timeout) >= 0)
 	{
-		data[i] = frame.data[i];
-		i++;
+		if(FD_ISSET(fd, &set))
+		{
+			read(fd, &frame, sizeof(struct can_frame));
+
+			unsigned char* data = (unsigned char *)malloc(sizeof(unsigned char)*(frame.can_dlc+1));
+
+    		data[0] = frame.data[0];
+    		int i=1;
+			while(i<frame.can_dlc)
+			{
+				data[i] = frame.data[i];
+				i++;
+			}
+
+			*length = frame.can_dlc;
+
+		    return data;
+		}
 	}
 
-    return data;
+	*length = 0;
+
+	return NULL;
 }
 
-int canSendBytes(int fd, unsigned char data[], unsigned int no_bytes)
+int canSendBytes(int canFD, unsigned int no_bytes, unsigned char data[])
 {
 	struct can_frame frame;
 	frame.can_id = 0x123;
@@ -94,12 +112,12 @@ int canSendBytes(int fd, unsigned char data[], unsigned int no_bytes)
 
 	frame.can_dlc = no_bytes;
 
-	int nbytes = write(fd, &frame, sizeof(struct can_frame));
+	int nbytes = write(canFD, &frame, sizeof(struct can_frame));
 
 	return nbytes;
 }
 
-void canClose(int fd)
+void canClose(int canFD)
 {
-	close(fd);
+	close(canFD);
 }
