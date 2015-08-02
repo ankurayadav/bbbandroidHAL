@@ -499,4 +499,82 @@ void JAVA_CLASS_PATH(canClose)(JNIEnv *env, jobject this, jint canFD)
 
 /* End the JNI wrapper funtions for the CAN app */
 
+/* Begin the JNI wrapper functions for the USB app */
+
+jint JAVA_CLASS_PATH(usbInit)(JNIEnv *env, jobject this)
+{
+	jint ret;
+
+	ret = usbInit() ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "usbInit() failed!");
+		ret = -1;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "usbInit() succeeded");
+	}
+
+	return ret;
+}
+
+jboolean JAVA_CLASS_PATH(usbGetDevices)(JNIEnv *env, jobject this, jobjectArray idArray, jobjectArray stringsArray)
+{
+	jint ret;
+	int i, j;
+
+	int count = (* env)->GetArrayLength(env, idArray);
+
+	unsigned char strings[count][3][256];
+	int ids[count][8];
+	
+	ret = usbGetDevices(ids, strings);
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "usbGetDevices(%d, intarray, bytearray) failed!", count);
+		return JNI_FALSE;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "usbGetDevices(%d, intarray, bytearray) succeeded", count);
+	}
+
+	for(i=0; i<count; i++)
+	{
+		jarray myidarray = ((* env)->GetObjectArrayElement (env, idArray, i));
+		jint* dids = (*env)->GetIntArrayElements(env, myidarray, NULL);
+
+		memcpy(dids, ids[i], sizeof(ids[i]));
+
+		(*env)->ReleaseIntArrayElements(env, myidarray, dids, 0);
+
+		
+		jarray mystrsarray = ((* env)->GetObjectArrayElement (env, stringsArray, i));
+
+		jarray mystrarray = ((* env)->GetObjectArrayElement (env, mystrsarray, 0));
+		jbyte* dstring = (*env)->GetByteArrayElements(env, mystrarray, NULL);
+		memcpy(dstring, strings[i][0], strlen(strings[i][0]));
+		(*env)->ReleaseByteArrayElements(env, mystrarray, dstring, 0);
+
+		mystrarray = ((* env)->GetObjectArrayElement (env, mystrsarray, 1));
+		dstring = (*env)->GetByteArrayElements(env, mystrarray, NULL);
+		memcpy(dstring, strings[i][1], strlen(strings[i][1]));
+		(*env)->ReleaseByteArrayElements(env, mystrarray, dstring, 1);
+
+		mystrarray = ((* env)->GetObjectArrayElement (env, mystrsarray, 2));
+		dstring = (*env)->GetByteArrayElements(env, mystrarray, NULL);
+		memcpy(dstring, strings[i][2], strlen(strings[i][2]));
+		(*env)->ReleaseByteArrayElements(env, mystrarray, dstring, 2);
+	}
+	
+	return JNI_TRUE;
+}
+
+void JAVA_CLASS_PATH(usbClose)(JNIEnv *env, jobject this)
+{
+	usbClose() ;
+
+	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "usbClose() succeeded");
+
+}
+
+/* End the JNI wrapper funtions for the USB app */
+
 /* End the JNI wrapper functions for the Complete app */
