@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>BBBAndroidHAL: Main Page</title>
+<title>BBBAndroidHAL: jni/adc.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,9 +37,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -58,7 +58,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -73,12 +77,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5e114aeb986e10d33f9bd0abaab0267d.html">jni</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">BBBAndroidHAL Documentation</div>  </div>
+<div class="title">adc.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+
+<p>ADC general purpose interface code for raw voltage input from file system.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdint.h&gt;</code><br/>
+<code>#include &quot;bbbandroidHAL.h&quot;</code><br/>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2a1e6ecc8e1380090a4944715f3449e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a1e6ecc8e1380090a4944715f3449e9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SYSFS_ADC_DIR</b>&#160;&#160;&#160;&quot;/sys/bus/iio/devices/iio:device0&quot;</td></tr>
+<tr class="separator:a2a1e6ecc8e1380090a4944715f3449e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac44f73e00249cc6934420102a0d52283"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac44f73e00249cc6934420102a0d52283"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>readADC</b> (unsigned int channel)</td></tr>
+<tr class="separator:ac44f73e00249cc6934420102a0d52283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>ADC general purpose interface code for raw voltage input from file system. </p>
+<dl class="section author"><dt>Author</dt><dd>Ankur Yadav (<a href="#" onclick="location.href='mai'+'lto:'+'ank'+'ur'+'aya'+'da'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">ankur<span style="display: none;">.nosp@m.</span>ayad<span style="display: none;">.nosp@m.</span>av@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a>) </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Aug 5 2015 18:15:22 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
