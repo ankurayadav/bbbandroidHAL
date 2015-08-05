@@ -7,6 +7,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file bbbandroidHAL.h
+ * @author Ankur Yadav (ankurayadav@gmail.com), Andrew Henderson (hendersa@icculus.org)
+ * @brief Main bbbandroidHAL header file
+ */
+
 #include <stdio.h>
 
 #ifndef __BBBANDROIDHAL_H__

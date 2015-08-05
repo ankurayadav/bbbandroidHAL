@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pwm_2ec',['pwm.c',['../pwm_8c.html',1,'']]]
+  ['jni_5fwrapper_2ec',['jni_wrapper.c',['../jni__wrapper_8c.html',1,'']]]
 ];
