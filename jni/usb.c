@@ -6,6 +6,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file usb.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief USB sample interface code using libusb
+ */
+
 #include "include/libusb/libusb/libusb.h"
 #include "bbbandroidHAL.h"
 #include <string.h>

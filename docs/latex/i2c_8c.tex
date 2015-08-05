@@ -1,0 +1,52 @@
+\hypertarget{i2c_8c}{\section{jni/i2c.c File Reference}
+\label{i2c_8c}\index{jni/i2c.\-c@{jni/i2c.\-c}}
+}
+
+
+I2\-C general purpose interface code for file system.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}include/linux/i2c-\/dev.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bbbandroid\-H\-A\-L.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{i2c_8c_ab99ded389af74001a6298fc9e44e74e5}{\#define {\bfseries M\-A\-X\-\_\-\-P\-A\-T\-H}~50}\label{i2c_8c_ab99ded389af74001a6298fc9e44e74e5}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{i2c_8c_a3f5c8b261f8cd46e857c02001eba8be9}{int {\bfseries i2c\-Open\-Adaptor} (uint8\-\_\-t adaptor\-Number)}\label{i2c_8c_a3f5c8b261f8cd46e857c02001eba8be9}
+
+\item 
+\hypertarget{i2c_8c_a0e05be9315aa4569ff80728272ec8ab7}{int {\bfseries i2c\-Set\-Slave} (int i2c\-F\-D, uint8\-\_\-t address)}\label{i2c_8c_a0e05be9315aa4569ff80728272ec8ab7}
+
+\item 
+\hypertarget{i2c_8c_ac757b4b1e915782cad2fc221b40c38a0}{int {\bfseries i2c\-Set\-Address} (int i2c\-F\-D, unsigned char add)}\label{i2c_8c_ac757b4b1e915782cad2fc221b40c38a0}
+
+\item 
+\hypertarget{i2c_8c_a6e1cf2326d6b244148a29c06a5bf51a1}{int {\bfseries i2c\-Write\-Byte} (int i2c\-F\-D, unsigned char add, unsigned char byte)}\label{i2c_8c_a6e1cf2326d6b244148a29c06a5bf51a1}
+
+\item 
+\hypertarget{i2c_8c_a3370014dbf1b57e50bfe8901e1ec4aa4}{int {\bfseries i2c\-Write\-Bytes} (int i2c\-F\-D, unsigned char add, int length, uint8\-\_\-t $\ast$bytes)}\label{i2c_8c_a3370014dbf1b57e50bfe8901e1ec4aa4}
+
+\item 
+\hypertarget{i2c_8c_a09dcb3af6a59d2728ca9029c9706a481}{int {\bfseries i2c\-Read\-Byte} (int i2c\-F\-D, unsigned char add)}\label{i2c_8c_a09dcb3af6a59d2728ca9029c9706a481}
+
+\item 
+\hypertarget{i2c_8c_a12c98fbd9553acea1aecab8598984a4f}{int {\bfseries i2c\-Read\-Bytes} (int i2c\-F\-D, unsigned char add, int length, uint8\-\_\-t $\ast$buff)}\label{i2c_8c_a12c98fbd9553acea1aecab8598984a4f}
+
+\item 
+\hypertarget{i2c_8c_afcd88e3f18a72d69c68543c714656b49}{void {\bfseries i2c\-Close} (int i2c\-F\-D)}\label{i2c_8c_afcd88e3f18a72d69c68543c714656b49}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I2\-C general purpose interface code for file system. \begin{DoxyAuthor}{Author}
+Ankur Yadav (\href{mailto:ankurayadav@gmail.com}{\tt ankurayadav@gmail.\-com}) 
+\end{DoxyAuthor}

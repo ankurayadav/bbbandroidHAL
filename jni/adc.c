@@ -7,6 +7,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file adc.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief   ADC general purpose interface code for raw voltage input from file system
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include "bbbandroidHAL.h"

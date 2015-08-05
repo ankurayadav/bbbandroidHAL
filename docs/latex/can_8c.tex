@@ -1,0 +1,49 @@
+\hypertarget{can_8c}{\section{jni/can.c File Reference}
+\label{can_8c}\index{jni/can.\-c@{jni/can.\-c}}
+}
+
+
+C\-A\-N general purpose interface code.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$net/if.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}include/linux/can.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include/linux/can/raw.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bbbandroid\-H\-A\-L.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{can_8c_aeac0c3db7a1e021f17987bcc76893849}{\#define {\bfseries P\-F\-\_\-\-C\-A\-N}~29}\label{can_8c_aeac0c3db7a1e021f17987bcc76893849}
+
+\item 
+\hypertarget{can_8c_a546620c7e758f003b24b7fdae4f97bd4}{\#define {\bfseries A\-F\-\_\-\-C\-A\-N}~P\-F\-\_\-\-C\-A\-N}\label{can_8c_a546620c7e758f003b24b7fdae4f97bd4}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{can_8c_a1db3a236b7f4e5d7d51b07eea5570e00}{int {\bfseries can\-Open\-Socket} (int socket\-\_\-type, int protocol)}\label{can_8c_a1db3a236b7f4e5d7d51b07eea5570e00}
+
+\item 
+\hypertarget{can_8c_a55ed8a8af0c0fd6e9b49c41e765d21d4}{int {\bfseries can\-Open\-Raw} (const char $\ast$port)}\label{can_8c_a55ed8a8af0c0fd6e9b49c41e765d21d4}
+
+\item 
+\hypertarget{can_8c_a9741126515b2ba8abd7fe0797e29a37a}{unsigned char $\ast$ {\bfseries can\-Read\-Bytes} (int fd, int $\ast$length)}\label{can_8c_a9741126515b2ba8abd7fe0797e29a37a}
+
+\item 
+\hypertarget{can_8c_adf1cefa459a18a37dddd05505040c035}{int {\bfseries can\-Send\-Bytes} (int can\-F\-D, unsigned int no\-\_\-bytes, unsigned char data\mbox{[}$\,$\mbox{]})}\label{can_8c_adf1cefa459a18a37dddd05505040c035}
+
+\item 
+\hypertarget{can_8c_afafc696379d40568d444c2c23084bbca}{void {\bfseries can\-Close} (int can\-F\-D)}\label{can_8c_afafc696379d40568d444c2c23084bbca}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\-A\-N general purpose interface code. \begin{DoxyAuthor}{Author}
+Ankur Yadav (\href{mailto:ankurayadav@gmail.com}{\tt ankurayadav@gmail.\-com}) 
+\end{DoxyAuthor}

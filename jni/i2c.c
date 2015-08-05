@@ -5,6 +5,13 @@
 
   This code is made available under the BSD license.
 **********************************************************/
+
+/**
+ * @file i2c.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief I2C general purpose interface code for file system
+ */
+
 #include <stdio.h>
 #include <fcntl.h> 
 #include <sys/ioctl.h>

@@ -6,6 +6,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file spi.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief SPI general purpose interface code for file system
+ */
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>

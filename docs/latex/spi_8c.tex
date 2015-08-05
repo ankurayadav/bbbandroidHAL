@@ -1,0 +1,70 @@
+\hypertarget{spi_8c}{\section{jni/spi.c File Reference}
+\label{spi_8c}\index{jni/spi.\-c@{jni/spi.\-c}}
+}
+
+
+S\-P\-I general purpose interface code for file system.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}include/linux/spi/spidev.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bbbandroid\-H\-A\-L.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{spi_8c_ab99ded389af74001a6298fc9e44e74e5}{\#define {\bfseries M\-A\-X\-\_\-\-P\-A\-T\-H}~50}\label{spi_8c_ab99ded389af74001a6298fc9e44e74e5}
+
+\item 
+\hypertarget{spi_8c_a5daa4b780b82b5e8678d8c7095336b62}{\#define {\bfseries M\-O\-D\-E0}~0}\label{spi_8c_a5daa4b780b82b5e8678d8c7095336b62}
+
+\item 
+\hypertarget{spi_8c_a443b1268c43b309560d57e34d50b5b3b}{\#define {\bfseries M\-O\-D\-E1}~1}\label{spi_8c_a443b1268c43b309560d57e34d50b5b3b}
+
+\item 
+\hypertarget{spi_8c_ab2d8aca64e351712eae6f03e3f9d64ad}{\#define {\bfseries M\-O\-D\-E2}~2}\label{spi_8c_ab2d8aca64e351712eae6f03e3f9d64ad}
+
+\item 
+\hypertarget{spi_8c_aefdb1e345181f5aa4a2105cf0e2ec3da}{\#define {\bfseries M\-O\-D\-E3}~3}\label{spi_8c_aefdb1e345181f5aa4a2105cf0e2ec3da}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{spi_8c_aeb5fc78e1c37a5b26e3544b817a78a63}{int {\bfseries spi\-Transfer} (int spi\-F\-D, unsigned char tx\mbox{[}$\,$\mbox{]}, unsigned char rx\mbox{[}$\,$\mbox{]}, int len)}\label{spi_8c_aeb5fc78e1c37a5b26e3544b817a78a63}
+
+\item 
+\hypertarget{spi_8c_a32b87eee9f3ce1e94b6ecee2a7d974d2}{unsigned char {\bfseries spi\-Read\-Byte} (int spi\-F\-D, unsigned int reg\-Add)}\label{spi_8c_a32b87eee9f3ce1e94b6ecee2a7d974d2}
+
+\item 
+\hypertarget{spi_8c_abf1f0e9ab6bfc213d4067c72e1298d8a}{unsigned char $\ast$ {\bfseries spi\-Read\-Bytes} (int spi\-F\-D, unsigned int len, unsigned int start\-Add)}\label{spi_8c_abf1f0e9ab6bfc213d4067c72e1298d8a}
+
+\item 
+\hypertarget{spi_8c_a627f735412cd9888cd8480df5031a56b}{int {\bfseries spi\-Write\-Reg\-Byte} (int spi\-F\-D, unsigned int reg\-Add, unsigned char data)}\label{spi_8c_a627f735412cd9888cd8480df5031a56b}
+
+\item 
+\hypertarget{spi_8c_aed45504189576940b764a9f22f9bac5f}{int {\bfseries spi\-Write\-Bytes} (int spi\-F\-D, unsigned char data\mbox{[}$\,$\mbox{]}, int len)}\label{spi_8c_aed45504189576940b764a9f22f9bac5f}
+
+\item 
+\hypertarget{spi_8c_aadb5134928411bc1a4b6711bed80f67c}{int {\bfseries spi\-Set\-Mode} (int spi\-F\-D, uint8\-\_\-t mode)}\label{spi_8c_aadb5134928411bc1a4b6711bed80f67c}
+
+\item 
+\hypertarget{spi_8c_a263f19f98c91dcd9a09c7926edff7531}{int {\bfseries spi\-Set\-Speed} (int spi\-F\-D, uint32\-\_\-t speed)}\label{spi_8c_a263f19f98c91dcd9a09c7926edff7531}
+
+\item 
+\hypertarget{spi_8c_aec46513a8420ddd697235853e615bf62}{int {\bfseries spi\-Set\-Bits\-Per\-Word} (int spi\-F\-D, uint8\-\_\-t bpw)}\label{spi_8c_aec46513a8420ddd697235853e615bf62}
+
+\item 
+\hypertarget{spi_8c_a75a74515477fbfa0e49bef6d74cb3a9c}{int {\bfseries spi\-Open} (unsigned int bus, unsigned int device, uint32\-\_\-t speed, uint8\-\_\-t mode, uint8\-\_\-t bpw)}\label{spi_8c_a75a74515477fbfa0e49bef6d74cb3a9c}
+
+\item 
+\hypertarget{spi_8c_afd6034b915d52565a858841a226bd016}{void {\bfseries spi\-Close} (int spi\-F\-D)}\label{spi_8c_afd6034b915d52565a858841a226bd016}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\-P\-I general purpose interface code for file system. \begin{DoxyAuthor}{Author}
+Ankur Yadav (\href{mailto:ankurayadav@gmail.com}{\tt ankurayadav@gmail.\-com}) 
+\end{DoxyAuthor}

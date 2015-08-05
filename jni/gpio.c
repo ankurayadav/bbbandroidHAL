@@ -9,6 +9,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file gpio.c
+ * @author Ankur Yadav (ankurayadav@gmail.com), Andrew Henderson (hendersa@icculus.org)
+ * @brief GPIO general purpose interface code for both file system and mmap() control of GPIOs
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include <unistd.h>

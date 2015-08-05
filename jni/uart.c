@@ -6,6 +6,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file uart.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief UART general purpose interface code for file system
+ */
+
 #include <termios.h>
 #include <stdio.h>
 #include <fcntl.h>

@@ -1,10 +1,16 @@
 /**********************************************************
-  CAN general purpose interface code for file system
+  CAN general purpose interface code
 
   Written by Ankur Yadav (ankurayadav@gmail.com)
 
   This code is made available under the BSD license.
 **********************************************************/
+
+/**
+ * @file can.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief CAN general purpose interface code
+ */
 
 #include <string.h>
 #include <fcntl.h>

@@ -1,0 +1,130 @@
+\hypertarget{jni__wrapper_8c}{\section{jni/jni\-\_\-wrapper.c File Reference}
+\label{jni__wrapper_8c}\index{jni/jni\-\_\-wrapper.\-c@{jni/jni\-\_\-wrapper.\-c}}
+}
+
+
+J\-N\-I general purpose interface code for bbbandroid\-H\-A\-L.  
+
+
+{\ttfamily \#include $<$jni.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$android/log.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}bbbandroid\-H\-A\-L.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{jni__wrapper_8c_a171ce31ddba1368abc4c8e1d461bdb8a}{\#define {\bfseries J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H}(funtion\-\_\-name)~Java\-\_\-com\-\_\-bbbandroid\-\_\-gpio\-\_\-\-Main\-Activity\-\_\-\#\#funtion\-\_\-name}\label{jni__wrapper_8c_a171ce31ddba1368abc4c8e1d461bdb8a}
+
+\item 
+\hypertarget{jni__wrapper_8c_a41da51bc0a32ad310fbe1e1db18d3634}{\#define {\bfseries B\-B\-B\-A\-N\-D\-R\-O\-I\-D\-\_\-\-N\-A\-T\-I\-V\-E\-\_\-\-T\-A\-G}~\char`\"{}N\-D\-K\-\_\-\-B\-B\-B\-Android\-Application\char`\"{}}\label{jni__wrapper_8c_a41da51bc0a32ad310fbe1e1db18d3634}
+
+\item 
+\hypertarget{jni__wrapper_8c_a6b20d41d6252e9871430c242cb1a56e7}{\#define {\bfseries B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~64}\label{jni__wrapper_8c_a6b20d41d6252e9871430c242cb1a56e7}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{jni__wrapper_8c_acf1df4c6584cda277b84c3a148dece6f}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries open\-G\-P\-I\-O} (J\-N\-I\-Env $\ast$env, jobject this)}\label{jni__wrapper_8c_acf1df4c6584cda277b84c3a148dece6f}
+
+\item 
+\hypertarget{jni__wrapper_8c_ab2709ce2dccbcd91b82ff5810fdc724f}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries close\-G\-P\-I\-O} (J\-N\-I\-Env $\ast$env, jobject this)}\label{jni__wrapper_8c_ab2709ce2dccbcd91b82ff5810fdc724f}
+
+\item 
+\hypertarget{jni__wrapper_8c_a74ccaa134c44d0a0abdef562d9737690}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries read\-G\-P\-I\-O} (J\-N\-I\-Env $\ast$env, jobject this, jint header, jint pin)}\label{jni__wrapper_8c_a74ccaa134c44d0a0abdef562d9737690}
+
+\item 
+\hypertarget{jni__wrapper_8c_aaf6bf636f310850e6e25fb2281b49285}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries write\-G\-P\-I\-O} (J\-N\-I\-Env $\ast$env, jobject this, jint header, jint pin, jint val)}\label{jni__wrapper_8c_aaf6bf636f310850e6e25fb2281b49285}
+
+\item 
+\hypertarget{jni__wrapper_8c_a21111a02311353596c8daf286e42bd53}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Set\-Period} (J\-N\-I\-Env $\ast$env, jobject this, jint channel, jint period\-\_\-ns)}\label{jni__wrapper_8c_a21111a02311353596c8daf286e42bd53}
+
+\item 
+\hypertarget{jni__wrapper_8c_a35aabac5f30cc929126a54407dc628a7}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Get\-Period} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a35aabac5f30cc929126a54407dc628a7}
+
+\item 
+\hypertarget{jni__wrapper_8c_a10a6fce20c1b8d5522361bfd5308611a}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Set\-Duty\-Cycle} (J\-N\-I\-Env $\ast$env, jobject this, jint channel, jint duration\-\_\-ns)}\label{jni__wrapper_8c_a10a6fce20c1b8d5522361bfd5308611a}
+
+\item 
+\hypertarget{jni__wrapper_8c_a0f0c1c13d5fe85355ebf07c63d1299b8}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Get\-Duty\-Cycle} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a0f0c1c13d5fe85355ebf07c63d1299b8}
+
+\item 
+\hypertarget{jni__wrapper_8c_aa4ecf2537cbd86960dca09933a60de55}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Set\-Polarity} (J\-N\-I\-Env $\ast$env, jobject this, jint channel, jint polarity)}\label{jni__wrapper_8c_aa4ecf2537cbd86960dca09933a60de55}
+
+\item 
+\hypertarget{jni__wrapper_8c_a4bde89fa0e9c0a827b1102122260dc22}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Get\-Polarity} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a4bde89fa0e9c0a827b1102122260dc22}
+
+\item 
+\hypertarget{jni__wrapper_8c_affb89da4a7a2d5a64bd7b1adecabe362}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Run} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_affb89da4a7a2d5a64bd7b1adecabe362}
+
+\item 
+\hypertarget{jni__wrapper_8c_a5787561bdd38e276cbd4444c0774ee95}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Stop} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a5787561bdd38e276cbd4444c0774ee95}
+
+\item 
+\hypertarget{jni__wrapper_8c_a969478955b81038338a17de3a6a39e68}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries pwm\-Run\-Check} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a969478955b81038338a17de3a6a39e68}
+
+\item 
+\hypertarget{jni__wrapper_8c_a04849491f634f763310c51a69e212141}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries read\-A\-D\-C} (J\-N\-I\-Env $\ast$env, jobject this, jint channel)}\label{jni__wrapper_8c_a04849491f634f763310c51a69e212141}
+
+\item 
+\hypertarget{jni__wrapper_8c_a5112661ff080d12815fed6b147d043c4}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Open\-Adaptor} (J\-N\-I\-Env $\ast$env, jobject this, jint adaptor\-Number)}\label{jni__wrapper_8c_a5112661ff080d12815fed6b147d043c4}
+
+\item 
+\hypertarget{jni__wrapper_8c_a15dfce659a1b0bd517d1558156ae2184}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Set\-Slave} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D, jint address)}\label{jni__wrapper_8c_a15dfce659a1b0bd517d1558156ae2184}
+
+\item 
+\hypertarget{jni__wrapper_8c_a3cb2affd5541540f2562e4dd837e0948}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Write\-Byte} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D, jbyte add, jbyte byte)}\label{jni__wrapper_8c_a3cb2affd5541540f2562e4dd837e0948}
+
+\item 
+\hypertarget{jni__wrapper_8c_aa593249913468aa04e2ac8673cae4be0}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Write\-Bytes} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D, jbyte add, jint length, jbyte\-Array barray)}\label{jni__wrapper_8c_aa593249913468aa04e2ac8673cae4be0}
+
+\item 
+\hypertarget{jni__wrapper_8c_a0e603c0db20faf7646c25881ddc5bc22}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Read\-Byte} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D, jbyte add)}\label{jni__wrapper_8c_a0e603c0db20faf7646c25881ddc5bc22}
+
+\item 
+\hypertarget{jni__wrapper_8c_aa076a453076e46852ac4da44cbb6a46e}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Read\-Bytes} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D, jbyte add, jint length, jint\-Array barray)}\label{jni__wrapper_8c_aa076a453076e46852ac4da44cbb6a46e}
+
+\item 
+\hypertarget{jni__wrapper_8c_a12c0ce439e6558c95bed602d955429f8}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries i2c\-Close} (J\-N\-I\-Env $\ast$env, jobject this, jint i2c\-F\-D)}\label{jni__wrapper_8c_a12c0ce439e6558c95bed602d955429f8}
+
+\item 
+\hypertarget{jni__wrapper_8c_aae3af78a365a2bcefaf859c7b91b92be}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries uart\-Open} (J\-N\-I\-Env $\ast$env, jobject this, jint device, jint bdrate)}\label{jni__wrapper_8c_aae3af78a365a2bcefaf859c7b91b92be}
+
+\item 
+\hypertarget{jni__wrapper_8c_a9f9f4eb77c8cb67729c3056015d31f95}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries uart\-Write} (J\-N\-I\-Env $\ast$env, jobject this, jint uart\-F\-D, jint length, jbyte\-Array barray)}\label{jni__wrapper_8c_a9f9f4eb77c8cb67729c3056015d31f95}
+
+\item 
+\hypertarget{jni__wrapper_8c_afc785e82d3f5d040347d8c1eec8c126d}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries uart\-Read} (J\-N\-I\-Env $\ast$env, jobject this, jint uart\-F\-D, jint length, jint\-Array barray)}\label{jni__wrapper_8c_afc785e82d3f5d040347d8c1eec8c126d}
+
+\item 
+\hypertarget{jni__wrapper_8c_a4a46d3e6db41dd8f8c1d85f7a384ea73}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries uart\-Close} (J\-N\-I\-Env $\ast$env, jobject this, jint uart\-F\-D)}\label{jni__wrapper_8c_a4a46d3e6db41dd8f8c1d85f7a384ea73}
+
+\item 
+\hypertarget{jni__wrapper_8c_a5708963830d792444ccbe0d71e50409b}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries can\-Open\-Raw} (J\-N\-I\-Env $\ast$env, jobject this, jstring port)}\label{jni__wrapper_8c_a5708963830d792444ccbe0d71e50409b}
+
+\item 
+\hypertarget{jni__wrapper_8c_a7709c2b44008320a69a10cdc647d536e}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries can\-Send\-Bytes} (J\-N\-I\-Env $\ast$env, jobject this, jint can\-F\-D, jint length, jbyte\-Array barray)}\label{jni__wrapper_8c_a7709c2b44008320a69a10cdc647d536e}
+
+\item 
+\hypertarget{jni__wrapper_8c_aeaec3b276041ac8316449f3a690f81c8}{jbyte\-Array J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries can\-Read\-Bytes} (J\-N\-I\-Env $\ast$env, jobject this, jint can\-F\-D)}\label{jni__wrapper_8c_aeaec3b276041ac8316449f3a690f81c8}
+
+\item 
+\hypertarget{jni__wrapper_8c_afb830af5d87c28049512ebef49f3879f}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries can\-Close} (J\-N\-I\-Env $\ast$env, jobject this, jint can\-F\-D)}\label{jni__wrapper_8c_afb830af5d87c28049512ebef49f3879f}
+
+\item 
+\hypertarget{jni__wrapper_8c_a7aaf5cfcfbc50e230cf0650dba33c638}{jint J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries usb\-Init} (J\-N\-I\-Env $\ast$env, jobject this)}\label{jni__wrapper_8c_a7aaf5cfcfbc50e230cf0650dba33c638}
+
+\item 
+\hypertarget{jni__wrapper_8c_a0161da03871bfa27af5bd592542d8b45}{jboolean J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries usb\-Get\-Devices} (J\-N\-I\-Env $\ast$env, jobject this, jobject\-Array id\-Array, jobject\-Array strings\-Array)}\label{jni__wrapper_8c_a0161da03871bfa27af5bd592542d8b45}
+
+\item 
+\hypertarget{jni__wrapper_8c_ab4f606be7cbc492a4282fbdc6fb508ab}{void J\-A\-V\-A\-\_\-\-C\-L\-A\-S\-S\-\_\-\-P\-A\-T\-H() {\bfseries usb\-Close} (J\-N\-I\-Env $\ast$env, jobject this)}\label{jni__wrapper_8c_ab4f606be7cbc492a4282fbdc6fb508ab}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+J\-N\-I general purpose interface code for bbbandroid\-H\-A\-L. \begin{DoxyAuthor}{Author}
+Ankur Yadav (\href{mailto:ankurayadav@gmail.com}{\tt ankurayadav@gmail.\-com}) 
+\end{DoxyAuthor}

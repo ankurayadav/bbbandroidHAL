@@ -6,6 +6,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file pwm.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief PWM general purpose interface code for file system
+ */
+
 #include <stdio.h>
 #include "bbbandroidHAL.h"
 

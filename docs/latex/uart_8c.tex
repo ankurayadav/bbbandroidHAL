@@ -1,0 +1,39 @@
+\hypertarget{uart_8c}{\section{jni/uart.c File Reference}
+\label{uart_8c}\index{jni/uart.\-c@{jni/uart.\-c}}
+}
+
+
+U\-A\-R\-T general purpose interface code for file system.  
+
+
+{\ttfamily \#include $<$termios.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}bbbandroid\-H\-A\-L.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{uart_8c_ab99ded389af74001a6298fc9e44e74e5}{\#define {\bfseries M\-A\-X\-\_\-\-P\-A\-T\-H}~50}\label{uart_8c_ab99ded389af74001a6298fc9e44e74e5}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{uart_8c_acebd135ddf7afff53b7b285ebe73aa64}{int {\bfseries uart\-Open} (unsigned int device, unsigned int bdrate)}\label{uart_8c_acebd135ddf7afff53b7b285ebe73aa64}
+
+\item 
+\hypertarget{uart_8c_a7838d1c403f81665bbb571bd03a1182e}{int {\bfseries uart\-Write} (int uart\-F\-D, int length, unsigned char $\ast$bytes)}\label{uart_8c_a7838d1c403f81665bbb571bd03a1182e}
+
+\item 
+\hypertarget{uart_8c_a1e97478d63f4c48c6a4da59a774d90e5}{int {\bfseries uart\-Read} (int uart\-F\-D, int length, unsigned char $\ast$bytes)}\label{uart_8c_a1e97478d63f4c48c6a4da59a774d90e5}
+
+\item 
+\hypertarget{uart_8c_a82556ab68cbb2b75f226070051225c44}{void {\bfseries uart\-Close} (int uart\-F\-D)}\label{uart_8c_a82556ab68cbb2b75f226070051225c44}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\-A\-R\-T general purpose interface code for file system. \begin{DoxyAuthor}{Author}
+Ankur Yadav (\href{mailto:ankurayadav@gmail.com}{\tt ankurayadav@gmail.\-com}) 
+\end{DoxyAuthor}

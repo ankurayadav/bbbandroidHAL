@@ -6,6 +6,12 @@
   This code is made available under the BSD license.
 **********************************************************/
 
+/**
+ * @file jni_wrapper.c
+ * @author Ankur Yadav (ankurayadav@gmail.com)
+ * @brief JNI general purpose interface code for bbbandroidHAL
+ */
+
 #include <jni.h>
 #include <string.h>
 #include <stdio.h>
