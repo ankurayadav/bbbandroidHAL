@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +87,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">gpio.c File Reference</div>  </div>
 </div><!--header-->
@@ -103,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;fcntl.h&gt;</code><br/>
 <code>#include &lt;errno.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
-<code>#include &quot;bbbandroidHAL.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="bbbandroidHAL_8h_source.html">bbbandroidHAL.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -112,44 +114,571 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a073e0a3b97cd034df4335ae084e1f9a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a073e0a3b97cd034df4335ae084e1f9a3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TOTAL_PINS_PER_HEADER</b>&#160;&#160;&#160;46</td></tr>
+<tr class="memitem:a073e0a3b97cd034df4335ae084e1f9a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a073e0a3b97cd034df4335ae084e1f9a3">TOTAL_PINS_PER_HEADER</a>&#160;&#160;&#160;46</td></tr>
 <tr class="separator:a073e0a3b97cd034df4335ae084e1f9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacbc3928fba1223c81d8696f00b63104"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacbc3928fba1223c81d8696f00b63104"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>GPIO_DATA_OUT_REG</b>&#160;&#160;&#160;0x13C</td></tr>
+<tr class="memitem:aacbc3928fba1223c81d8696f00b63104"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#aacbc3928fba1223c81d8696f00b63104">GPIO_DATA_OUT_REG</a>&#160;&#160;&#160;0x13C</td></tr>
 <tr class="separator:aacbc3928fba1223c81d8696f00b63104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f734bf76949b574d074649e28b9c367"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f734bf76949b574d074649e28b9c367"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>GPIO_DATA_IN_REG</b>&#160;&#160;&#160;0x138</td></tr>
+<tr class="memitem:a1f734bf76949b574d074649e28b9c367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a1f734bf76949b574d074649e28b9c367">GPIO_DATA_IN_REG</a>&#160;&#160;&#160;0x138</td></tr>
 <tr class="separator:a1f734bf76949b574d074649e28b9c367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a192aee11f30b27525c51ff6004a6b116"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a192aee11f30b27525c51ff6004a6b116"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>GPIO_OE_REG</b>&#160;&#160;&#160;0x134</td></tr>
+<tr class="memitem:a192aee11f30b27525c51ff6004a6b116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a192aee11f30b27525c51ff6004a6b116">GPIO_OE_REG</a>&#160;&#160;&#160;0x134</td></tr>
 <tr class="separator:a192aee11f30b27525c51ff6004a6b116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2186edfe157722c7ba835017f4047dc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2186edfe157722c7ba835017f4047dc9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SYSFS_GPIO_DIR</b>&#160;&#160;&#160;&quot;/sys/class/gpio&quot;</td></tr>
+<tr class="memitem:a2186edfe157722c7ba835017f4047dc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a2186edfe157722c7ba835017f4047dc9">SYSFS_GPIO_DIR</a>&#160;&#160;&#160;&quot;/sys/class/gpio&quot;</td></tr>
 <tr class="separator:a2186edfe157722c7ba835017f4047dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6f368d7cf290b998e1839d09a84ed788"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f368d7cf290b998e1839d09a84ed788"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>openGPIO</b> (const int useMmap)</td></tr>
+<tr class="memitem:a6f368d7cf290b998e1839d09a84ed788"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a6f368d7cf290b998e1839d09a84ed788">openGPIO</a> (const int useMmap)</td></tr>
 <tr class="separator:a6f368d7cf290b998e1839d09a84ed788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a6e1fa169426c4de87d7ed8c2ba8184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a6e1fa169426c4de87d7ed8c2ba8184"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>readGPIO</b> (const unsigned int header, const unsigned int pin)</td></tr>
+<tr class="memitem:a9584463e39fd2b3c7bf9be1b8d68931e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a9584463e39fd2b3c7bf9be1b8d68931e">readGPIOMmap</a> (const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *pinGPIO)</td></tr>
+<tr class="separator:a9584463e39fd2b3c7bf9be1b8d68931e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d74c42a11450b09b7fce4e60be10202"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a7d74c42a11450b09b7fce4e60be10202">writeGPIOMmap</a> (const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *pinGPIO, const unsigned int value)</td></tr>
+<tr class="separator:a7d74c42a11450b09b7fce4e60be10202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c93d0ea7e7d3b5407adf8707fd20bfc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a1c93d0ea7e7d3b5407adf8707fd20bfc">readGPIOFS</a> (const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *pinGPIO)</td></tr>
+<tr class="separator:a1c93d0ea7e7d3b5407adf8707fd20bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed879c82a48e2a33815ef39ee495b4ca"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#aed879c82a48e2a33815ef39ee495b4ca">writeGPIOFS</a> (const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *pinGPIO, const unsigned int value)</td></tr>
+<tr class="separator:aed879c82a48e2a33815ef39ee495b4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6e1fa169426c4de87d7ed8c2ba8184"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a3a6e1fa169426c4de87d7ed8c2ba8184">readGPIO</a> (const unsigned int header, const unsigned int pin)</td></tr>
 <tr class="separator:a3a6e1fa169426c4de87d7ed8c2ba8184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7eebb09281bdeb73ec55bb2870c18fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7eebb09281bdeb73ec55bb2870c18fd"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>writeGPIO</b> (const unsigned int header, const unsigned int pin, const unsigned int value)</td></tr>
+<tr class="memitem:ab7eebb09281bdeb73ec55bb2870c18fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#ab7eebb09281bdeb73ec55bb2870c18fd">writeGPIO</a> (const unsigned int header, const unsigned int pin, const unsigned int value)</td></tr>
 <tr class="separator:ab7eebb09281bdeb73ec55bb2870c18fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ffd2b12032340a5215185a1ccb73a9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ffd2b12032340a5215185a1ccb73a9a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>closeGPIO</b> (void)</td></tr>
+<tr class="memitem:a9ffd2b12032340a5215185a1ccb73a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a9ffd2b12032340a5215185a1ccb73a9a">closeGPIO</a> (void)</td></tr>
 <tr class="separator:a9ffd2b12032340a5215185a1ccb73a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad30e14fc26d4ad2ed6614aa5f9f05a78"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#ad30e14fc26d4ad2ed6614aa5f9f05a78">fsBuf</a> [64]</td></tr>
+<tr class="separator:ad30e14fc26d4ad2ed6614aa5f9f05a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67fd6122e11286439af8a78e9a314a1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a67fd6122e11286439af8a78e9a314a1e">P8_GPIO_pin_info</a> [<a class="el" href="gpio_8c.html#a073e0a3b97cd034df4335ae084e1f9a3">TOTAL_PINS_PER_HEADER</a>]</td></tr>
+<tr class="separator:a67fd6122e11286439af8a78e9a314a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d8a8f70225f29df619453f1da1659f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#af6d8a8f70225f29df619453f1da1659f">P9_GPIO_pin_info</a> [<a class="el" href="gpio_8c.html#a073e0a3b97cd034df4335ae084e1f9a3">TOTAL_PINS_PER_HEADER</a>]</td></tr>
+<tr class="separator:af6d8a8f70225f29df619453f1da1659f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30eb73fa6b0237079c06396b163fa20"><td class="memItemLeft" align="right" valign="top">static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#af30eb73fa6b0237079c06396b163fa20">gpioAddrs</a> []</td></tr>
+<tr class="separator:af30eb73fa6b0237079c06396b163fa20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb5f19cd12640f5064b3c9f852fd89c2"><td class="memItemLeft" align="right" valign="top">static uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#abb5f19cd12640f5064b3c9f852fd89c2">mapGPIO</a> [4]</td></tr>
+<tr class="separator:abb5f19cd12640f5064b3c9f852fd89c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b6e8389f6ee221bced328ba538e3fa"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#a85b6e8389f6ee221bced328ba538e3fa">fdGPIO</a> = 0</td></tr>
+<tr class="separator:a85b6e8389f6ee221bced328ba538e3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06983e7f6e71b233ea7ff3dee1952f2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#ad06983e7f6e71b233ea7ff3dee1952f2">initialized</a> = 0</td></tr>
+<tr class="separator:ad06983e7f6e71b233ea7ff3dee1952f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abddf88be7c735e754b54bda17e4feb61"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8c.html#abddf88be7c735e754b54bda17e4feb61">usingMmap</a> = 0</td></tr>
+<tr class="separator:abddf88be7c735e754b54bda17e4feb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPIO general purpose interface code for both file system and mmap() control of GPIOs. </p>
 <dl class="section author"><dt>Author</dt><dd>Ankur Yadav (<a href="#" onclick="location.href='mai'+'lto:'+'ank'+'ur'+'aya'+'da'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">ankur<span style="display: none;">.nosp@m.</span>ayad<span style="display: none;">.nosp@m.</span>av@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a>), Andrew Henderson (<a href="#" onclick="location.href='mai'+'lto:'+'hen'+'de'+'rsa'+'@i'+'ccu'+'lu'+'s.o'+'rg'; return false;">hende<span style="display: none;">.nosp@m.</span>rsa@<span style="display: none;">.nosp@m.</span>iccul<span style="display: none;">.nosp@m.</span>us.o<span style="display: none;">.nosp@m.</span>rg</a>) </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a1f734bf76949b574d074649e28b9c367"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GPIO_DATA_IN_REG&#160;&#160;&#160;0x138</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>GPIO DATA IN register address </p>
+
+</div>
+</div>
+<a class="anchor" id="aacbc3928fba1223c81d8696f00b63104"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GPIO_DATA_OUT_REG&#160;&#160;&#160;0x13C</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>GPIO DATA OUT register address </p>
+
+</div>
+</div>
+<a class="anchor" id="a192aee11f30b27525c51ff6004a6b116"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GPIO_OE_REG&#160;&#160;&#160;0x134</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>GPIO OE register address </p>
+
+</div>
+</div>
+<a class="anchor" id="a2186edfe157722c7ba835017f4047dc9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SYSFS_GPIO_DIR&#160;&#160;&#160;&quot;/sys/class/gpio&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>File system path to access GPIO </p>
+
+</div>
+</div>
+<a class="anchor" id="a073e0a3b97cd034df4335ae084e1f9a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOTAL_PINS_PER_HEADER&#160;&#160;&#160;46</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Total number of pins per header in beaglebone black </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a9ffd2b12032340a5215185a1ccb73a9a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void closeGPIO </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>For closing file descriptor if accessed using file system and set initialized to 0. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6f368d7cf290b998e1839d09a84ed788"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int openGPIO </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>useMmap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function takes parameter input useMmap to take choice if you want to use Memory Map to access GPIO or to access it using file system. If using memory map then a proper file descriptor is set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">useMmap</td><td>a constant integer argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If successful then 0 is returned and if it fails then 1 is returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a6e1fa169426c4de87d7ed8c2ba8184"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readGPIO </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>header</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It takes input GPIO header and pin and reads its value after opening its file. If Memory Map is used then proper bit value is read using the file descriptor initialized in <a class="el" href="gpio_8c.html#a6f368d7cf290b998e1839d09a84ed788">openGPIO()</a> function call. Proper bit positions for all the GPIOs are present in <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> arrays of each P8 and P9 header. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>a constant unsigned int argument. </td></tr>
+    <tr><td class="paramname">pin</td><td>a constant unsigned int argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="gpio_8c.html#a9584463e39fd2b3c7bf9be1b8d68931e">readGPIOMmap()</a> </dd>
+<dd>
+<a class="el" href="gpio_8c.html#a1c93d0ea7e7d3b5407adf8707fd20bfc">readGPIOFS()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if read 1 and 0 if read 0; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1c93d0ea7e7d3b5407adf8707fd20bfc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int readGPIOFS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *&#160;</td>
+          <td class="paramname"><em>pinGPIO</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function takes input pointer to <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> type structure which stores information about a pin. This pin information is then used to get pin id to read from GPIO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*pinGPIO</td><td>a constant <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if read 1 and 0 if read 0; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9584463e39fd2b3c7bf9be1b8d68931e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int readGPIOMmap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *&#160;</td>
+          <td class="paramname"><em>pinGPIO</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function takes input pointer to <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> type structure which stores information about a pin. This pin information is then used to get DATA IN register and read the GPIO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*pinGPIO</td><td>a constant <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The bit for the GPIO that we're interested in. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7eebb09281bdeb73ec55bb2870c18fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeGPIO </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>header</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It takes input GPIO header, pin and value that is required to be set on GPIO after opening corresponding GPIO file. If Memory Map is used then proper bit value is set using the file descriptor initialized in <a class="el" href="gpio_8c.html#a6f368d7cf290b998e1839d09a84ed788">openGPIO()</a> function call. Proper bit positions for all the GPIOs are present in <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> arrays of each P8 and P9 header. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>a constant unsigned int argument. </td></tr>
+    <tr><td class="paramname">pin</td><td>a constant unsigned int argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="gpio_8c.html#a7d74c42a11450b09b7fce4e60be10202">writeGPIOMmap()</a> </dd>
+<dd>
+<a class="el" href="gpio_8c.html#aed879c82a48e2a33815ef39ee495b4ca">writeGPIOFS()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfull and 1 if it fails </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed879c82a48e2a33815ef39ee495b4ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int writeGPIOFS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *&#160;</td>
+          <td class="paramname"><em>pinGPIO</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function takes input pointer to <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> type structure which stores information about a pin. This pin information is then used to get pin id to write to GPIO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*pinGPIO</td><td>a constant <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfull and 1 if it fails </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7d74c42a11450b09b7fce4e60be10202"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int writeGPIOMmap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> *&#160;</td>
+          <td class="paramname"><em>pinGPIO</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function takes input pointer to <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> type structure which stores information about a pin. This pin information is then used to get DATA OUT register and OE register to write to GPIO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*pinGPIO</td><td>a constant <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a85b6e8389f6ee221bced328ba538e3fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fdGPIO = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>File descriptor for GPIO for file system access </p>
+
+</div>
+</div>
+<a class="anchor" id="ad30e14fc26d4ad2ed6614aa5f9f05a78"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char fsBuf[64]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Buffer to store generated file system path using snprintf </p>
+
+</div>
+</div>
+<a class="anchor" id="af30eb73fa6b0237079c06396b163fa20"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t gpioAddrs[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= </div>
+<div class="line">  { 0x44E07000, 0x4804C000, 0x481AC000, 0x481AE000 }</div>
+</div><!-- fragment --><p>Register Bank addresses </p>
+
+</div>
+</div>
+<a class="anchor" id="ad06983e7f6e71b233ea7ff3dee1952f2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int initialized = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Variable to check if GPIO is initialized earlier </p>
+
+</div>
+</div>
+<a class="anchor" id="abb5f19cd12640f5064b3c9f852fd89c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t* mapGPIO[4]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Variable for GPIO memory map </p>
+
+</div>
+</div>
+<a class="anchor" id="a67fd6122e11286439af8a78e9a314a1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> P8_GPIO_pin_info[<a class="el" href="gpio_8c.html#a073e0a3b97cd034df4335ae084e1f9a3">TOTAL_PINS_PER_HEADER</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>static <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> variable to store P8 header pins. </p>
+
+</div>
+</div>
+<a class="anchor" id="af6d8a8f70225f29df619453f1da1659f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> P9_GPIO_pin_info[<a class="el" href="gpio_8c.html#a073e0a3b97cd034df4335ae084e1f9a3">TOTAL_PINS_PER_HEADER</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>static <a class="el" href="structGPIOBit__t.html">GPIOBit_t</a> variable to store P9 header pins. </p>
+
+</div>
+</div>
+<a class="anchor" id="abddf88be7c735e754b54bda17e4feb61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int usingMmap = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Variable to check if Memory map access mode for GPIO is set </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 5 2015 18:15:22 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

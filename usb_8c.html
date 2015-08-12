@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,7 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">usb.c File Reference</div>  </div>
 </div><!--header-->
@@ -93,28 +95,190 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>USB sample interface code using libusb.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;include/libusb/libusb/libusb.h&quot;</code><br/>
-<code>#include &quot;bbbandroidHAL.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="bbbandroidHAL_8h_source.html">bbbandroidHAL.h</a>&quot;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa216191bcec4c7599077e84cdef252fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa216191bcec4c7599077e84cdef252fc"></a>
-ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>usbInit</b> ()</td></tr>
+<tr class="memitem:aa216191bcec4c7599077e84cdef252fc"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#aa216191bcec4c7599077e84cdef252fc">usbInit</a> ()</td></tr>
 <tr class="separator:aa216191bcec4c7599077e84cdef252fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afda2ad80b603f9e48698dd24b99d1d2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afda2ad80b603f9e48698dd24b99d1d2f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>usbGetDevices</b> (int ids[][8], unsigned char strings[][3][256])</td></tr>
+<tr class="memitem:afda2ad80b603f9e48698dd24b99d1d2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#afda2ad80b603f9e48698dd24b99d1d2f">usbGetDevices</a> (int ids[][8], unsigned char strings[][3][256])</td></tr>
 <tr class="separator:afda2ad80b603f9e48698dd24b99d1d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcc35dcc848ccf98051b080dfeac2d4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcc35dcc848ccf98051b080dfeac2d4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbClose</b> ()</td></tr>
+<tr class="memitem:afcc35dcc848ccf98051b080dfeac2d4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#afcc35dcc848ccf98051b080dfeac2d4a">usbClose</a> ()</td></tr>
 <tr class="separator:afcc35dcc848ccf98051b080dfeac2d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aaab881a7f3008d04784bd91b846ac7b8"><td class="memItemLeft" align="right" valign="top">static libusb_device **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#aaab881a7f3008d04784bd91b846ac7b8">devs</a></td></tr>
+<tr class="separator:aaab881a7f3008d04784bd91b846ac7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6baa346e44f4c2158d2be4f9b77b8203"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#a6baa346e44f4c2158d2be4f9b77b8203">ret</a></td></tr>
+<tr class="separator:a6baa346e44f4c2158d2be4f9b77b8203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad898396b85ac868430383d746275b72"><td class="memItemLeft" align="right" valign="top">static libusb_context *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#aad898396b85ac868430383d746275b72">ctx</a> = NULL</td></tr>
+<tr class="separator:aad898396b85ac868430383d746275b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8f65e2f04446eb0a2f098411dacf9b"><td class="memItemLeft" align="right" valign="top">static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8c.html#a9e8f65e2f04446eb0a2f098411dacf9b">count</a></td></tr>
+<tr class="separator:a9e8f65e2f04446eb0a2f098411dacf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>USB sample interface code using libusb. </p>
 <dl class="section author"><dt>Author</dt><dd>Ankur Yadav (<a href="#" onclick="location.href='mai'+'lto:'+'ank'+'ur'+'aya'+'da'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">ankur<span style="display: none;">.nosp@m.</span>ayad<span style="display: none;">.nosp@m.</span>av@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a>) </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="afcc35dcc848ccf98051b080dfeac2d4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbClose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to close USB devices. </p>
+
+</div>
+</div>
+<a class="anchor" id="afda2ad80b603f9e48698dd24b99d1d2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int usbGetDevices </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ids</em>[][8], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>strings</em>[][3][256]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function takes one 2D array to store IDs (bus, device, manufacturer and vendor) for each USB device and one 3D array to store path, manufacturer descriptor and vendor descriptor. It returns 0 if successful and -1 if it fails. It is only to demonstrate and develop lsusb kind of app. Similar functions can be made using libusb for other functionalities of USB. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ids</td><td>2D integer array argument. </td></tr>
+    <tr><td class="paramname">strings</td><td>3D unsigned character argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successful and -1 if it fails. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa216191bcec4c7599077e84cdef252fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ssize_t usbInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It creates USB session and gets number of USB devices attached and then returns number of USB devices attached. </p>
+<dl class="section return"><dt>Returns</dt><dd>If successful then number of USB devices attached is returned and if it fails then -1 is returned. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a9e8f65e2f04446eb0a2f098411dacf9b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ssize_t count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>To store number of devices in the list </p>
+
+</div>
+</div>
+<a class="anchor" id="aad898396b85ac868430383d746275b72"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">libusb_context* ctx = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>To store libusb session </p>
+
+</div>
+</div>
+<a class="anchor" id="aaab881a7f3008d04784bd91b846ac7b8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">libusb_device** devs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>pointer to pinter of device to get list of devices </p>
+
+</div>
+</div>
+<a class="anchor" id="a6baa346e44f4c2158d2be4f9b77b8203"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ret</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>To store return values for some functions internally </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 5 2015 18:15:22 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,42 +101,223 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;net/if.h&gt;</code><br/>
 <code>#include &quot;include/linux/can.h&quot;</code><br/>
 <code>#include &quot;include/linux/can/raw.h&quot;</code><br/>
-<code>#include &quot;bbbandroidHAL.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="bbbandroidHAL_8h_source.html">bbbandroidHAL.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aeac0c3db7a1e021f17987bcc76893849"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeac0c3db7a1e021f17987bcc76893849"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PF_CAN</b>&#160;&#160;&#160;29</td></tr>
+<tr class="memitem:aeac0c3db7a1e021f17987bcc76893849"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#aeac0c3db7a1e021f17987bcc76893849">PF_CAN</a>&#160;&#160;&#160;29</td></tr>
 <tr class="separator:aeac0c3db7a1e021f17987bcc76893849"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a546620c7e758f003b24b7fdae4f97bd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a546620c7e758f003b24b7fdae4f97bd4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>AF_CAN</b>&#160;&#160;&#160;PF_CAN</td></tr>
+<tr class="memitem:a546620c7e758f003b24b7fdae4f97bd4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a546620c7e758f003b24b7fdae4f97bd4">AF_CAN</a>&#160;&#160;&#160;<a class="el" href="can_8c.html#aeac0c3db7a1e021f17987bcc76893849">PF_CAN</a></td></tr>
 <tr class="separator:a546620c7e758f003b24b7fdae4f97bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1db3a236b7f4e5d7d51b07eea5570e00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1db3a236b7f4e5d7d51b07eea5570e00"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>canOpenSocket</b> (int socket_type, int protocol)</td></tr>
+<tr class="memitem:a1db3a236b7f4e5d7d51b07eea5570e00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket</a> (int socket_type, int protocol)</td></tr>
 <tr class="separator:a1db3a236b7f4e5d7d51b07eea5570e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55ed8a8af0c0fd6e9b49c41e765d21d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55ed8a8af0c0fd6e9b49c41e765d21d4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>canOpenRaw</b> (const char *port)</td></tr>
+<tr class="memitem:a55ed8a8af0c0fd6e9b49c41e765d21d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a55ed8a8af0c0fd6e9b49c41e765d21d4">canOpenRaw</a> (const char *port)</td></tr>
 <tr class="separator:a55ed8a8af0c0fd6e9b49c41e765d21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9741126515b2ba8abd7fe0797e29a37a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9741126515b2ba8abd7fe0797e29a37a"></a>
-unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>canReadBytes</b> (int fd, int *length)</td></tr>
+<tr class="memitem:a9741126515b2ba8abd7fe0797e29a37a"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a9741126515b2ba8abd7fe0797e29a37a">canReadBytes</a> (int fd, int *length)</td></tr>
 <tr class="separator:a9741126515b2ba8abd7fe0797e29a37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf1cefa459a18a37dddd05505040c035"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf1cefa459a18a37dddd05505040c035"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>canSendBytes</b> (int canFD, unsigned int no_bytes, unsigned char data[])</td></tr>
+<tr class="memitem:adf1cefa459a18a37dddd05505040c035"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#adf1cefa459a18a37dddd05505040c035">canSendBytes</a> (int canFD, unsigned int no_bytes, unsigned char data[])</td></tr>
 <tr class="separator:adf1cefa459a18a37dddd05505040c035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afafc696379d40568d444c2c23084bbca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afafc696379d40568d444c2c23084bbca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>canClose</b> (int canFD)</td></tr>
+<tr class="memitem:afafc696379d40568d444c2c23084bbca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#afafc696379d40568d444c2c23084bbca">canClose</a> (int canFD)</td></tr>
 <tr class="separator:afafc696379d40568d444c2c23084bbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CAN general purpose interface code. </p>
 <dl class="section author"><dt>Author</dt><dd>Ankur Yadav (<a href="#" onclick="location.href='mai'+'lto:'+'ank'+'ur'+'aya'+'da'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">ankur<span style="display: none;">.nosp@m.</span>ayad<span style="display: none;">.nosp@m.</span>av@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a>) </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a546620c7e758f003b24b7fdae4f97bd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AF_CAN&#160;&#160;&#160;<a class="el" href="can_8c.html#aeac0c3db7a1e021f17987bcc76893849">PF_CAN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AF_CAN macro defination which was missing from can.h </p>
+
+</div>
+</div>
+<a class="anchor" id="aeac0c3db7a1e021f17987bcc76893849"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PF_CAN&#160;&#160;&#160;29</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>PF_CAN macro defination which was missing from can.h </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="afafc696379d40568d444c2c23084bbca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void canClose </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>canFD</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to close CAN file descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">canFD</td><td>an integer argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a55ed8a8af0c0fd6e9b49c41e765d21d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int canOpenRaw </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function takes port string as input and opens socket using <a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket()</a>, locates interface using ioctl() system call then binds the socket with CAN interface and returns the file descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>a constant character pointer argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If successful then CAN file descriptor after opening socket is returned and if it fails then -1 is returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1db3a236b7f4e5d7d51b07eea5570e00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int canOpenSocket </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socket_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>protocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function takes socket_type and protocol as input and opens socket of that type and protocol and then returns file descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket_type</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">protocol</td><td>an integer argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If successful then CAN file descriptor after opening socket is returned and if it fails then -1 is returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9741126515b2ba8abd7fe0797e29a37a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* canReadBytes </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This functions takes file descriptor and length of data to be read as input and returns the pointer to the array of data bytes read. If no data is read then NULL pointer is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">length</td><td>an integer pointer argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pointer to the array of data bytes read. If no data is read then NULL pointer is returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adf1cefa459a18a37dddd05505040c035"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int canSendBytes </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>canFD</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>no_bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function takes can file descriptor, number of bytes and array of data to be transferred as input and writes given number of bytes of data from data buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">canFD</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">no_bytes</td><td>an unsigned integer argument. </td></tr>
+    <tr><td class="paramname">data</td><td>array of unsigned char argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bytes successfully written to CAN device. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 5 2015 18:15:22 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
