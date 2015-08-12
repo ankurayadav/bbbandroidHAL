@@ -15,9 +15,17 @@
 #include <stdio.h>
 #include "bbbandroidHAL.h"
 
-#define SYSFS_PWM_DIR "/sys/class/pwm"
+#define SYSFS_PWM_DIR "/sys/class/pwm"	/**< File system path to access PWM */
 
-static char fsBuf[100];
+static char fsBuf[100];	/**< Buffer to store generated file system path using snprintf */
+
+/**
+ * It takes channel and period to be assigned in nano seconds 
+ * and sets period of that channel to specified value using file system.
+ * @param channel an unsigned integer argument.
+ * @param period_ns an unsigned integer argument.
+ * @return 0 on success and -1 if it fails.
+ */
 
 int pwmSetPeriod(unsigned int channel, unsigned int period_ns)
 {
@@ -37,6 +45,13 @@ int pwmSetPeriod(unsigned int channel, unsigned int period_ns)
 
 	return 0;
 }
+
+/**
+ * It takes channel number as input
+ * and returns the value of period of specified channel in nano seconds.
+ * @param channel an unsigned integer argument.
+ * @return value of period on success and -1 if it fails.
+ */
 
 unsigned int pwmGetPeriod(unsigned int channel)
 {
@@ -58,6 +73,14 @@ unsigned int pwmGetPeriod(unsigned int channel)
   	return value;
 }
 
+/**
+ * It takes channel and duty cycle to be assigned in nano seconds
+ * and sets duty cycle of that channel to specified value using file system.
+ * @param channel an unsigned integer argument.
+ * @param duration_ns an unsigned integer argument.
+ * @return 0 on success and -1 if it fails.
+ */
+
 int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns)
 {
 	FILE *fd;
@@ -76,6 +99,13 @@ int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns)
 
 	return 0;
 }
+
+/**
+ * It takes channel number as input and
+ * returns the value of duty cycle of specified channel in nano seconds.
+ * @param channel an unsigned integer argument.
+ * @return value of duty cycle on success and -1 if it fails.
+ */
 
 int pwmGetDutyCycle(unsigned int channel)
 {
@@ -97,6 +127,14 @@ int pwmGetDutyCycle(unsigned int channel)
   	return value;
 }
 
+/**
+ * It takes channel and polarity to be assigned
+ * and sets polarity of that channel to the specified value using file system.
+ * @param channel an unsigned integer argument.
+ * @param polarity an unsigned integer argument.
+ * @return 0 on success and -1 if it fails.
+ */
+
 int pwmSetPolarity(unsigned int channel, unsigned int polarity)
 {
 	FILE *fd;
@@ -115,6 +153,13 @@ int pwmSetPolarity(unsigned int channel, unsigned int polarity)
 
 	return 0;
 }
+
+/**
+ * It takes channel number as input and 
+ * returns the value of polarity of specified channel.
+ * @param channel an unsigned integer argument.
+ * @return value of polarity on success and -1 if it fails.
+ */
 
 int pwmGetPolarity(unsigned int channel)
 {
@@ -136,6 +181,13 @@ int pwmGetPolarity(unsigned int channel)
   	return value;
 }
 
+/**
+ * It takes channel number as input and sets run 
+ * for that channel so that pwm starts running for that channel.
+ * @param channel an unsigned integer argument.
+ * @return 0 on success and -1 if it fails.
+ */
+
 int pwmRun(unsigned int channel)
 {
 	FILE *fd;
@@ -155,6 +207,13 @@ int pwmRun(unsigned int channel)
 	return 0;	
 }
 
+/**
+ * It takes channel number as input and sets run 
+ * to 0 for that channel so that pwm stops for that channel.
+ * @param channel an unsigned integer argument.
+ * @return 0 on success and -1 if it fails.
+ */
+
 int pwmStop(unsigned int channel)
 {
 	FILE *fd;
@@ -173,6 +232,13 @@ int pwmStop(unsigned int channel)
 
 	return 0;	
 }
+
+/**
+ * It takes channel number as input and 
+ * returns the value of run for that channel.
+ * @param channel an unsigned integer argument.
+ * @return value of run on success and -1 if it fails.
+ */
 
 int pwmRunCheck(unsigned int channel)
 {

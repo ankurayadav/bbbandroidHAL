@@ -17,9 +17,15 @@
 #include <stdint.h>
 #include "bbbandroidHAL.h"
 
-#define SYSFS_ADC_DIR "/sys/bus/iio/devices/iio:device0"
+#define SYSFS_ADC_DIR "/sys/bus/iio/devices/iio:device0" /**< File system path to access ADC */
 
-static char fsBuf[100];
+static char fsBuf[100]; /**< Buffer to store generated file system path using snprintf */
+
+/**
+ * It takes ADC channel number as the input and reads its value using file system access and then returns its value.
+ * @param channel an unsigned integer argument.
+ * @return If successful then value of ADC channel is returned and if it fails then -1 is returned.
+ */
 
 uint32_t readADC(unsigned int channel)
 {

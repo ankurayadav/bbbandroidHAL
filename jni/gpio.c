@@ -26,19 +26,28 @@
 #include <string.h>
 #include "bbbandroidHAL.h"
 
-#define TOTAL_PINS_PER_HEADER 46
-#define GPIO_DATA_OUT_REG     0x13C
-#define GPIO_DATA_IN_REG      0x138
-#define GPIO_OE_REG           0x134
-#define SYSFS_GPIO_DIR        "/sys/class/gpio"
+#define TOTAL_PINS_PER_HEADER 46		/**< Total number of pins per header in beaglebone black */
+#define GPIO_DATA_OUT_REG     0x13C		/**< GPIO DATA OUT register address */
+#define GPIO_DATA_IN_REG      0x138		/**< GPIO DATA IN register address */
+#define GPIO_OE_REG           0x134		/**< GPIO OE register address */
+#define SYSFS_GPIO_DIR        "/sys/class/gpio"		/**< File system path to access GPIO */
 
-static char fsBuf[64];
+static char fsBuf[64];  /**< Buffer to store generated file system path using snprintf */
+
+/** 
+ * typedef struct GPIOBit_t for storing parameters to access GPIOs using Memory Map.
+ * 
+ */
 
 typedef struct {
-  unsigned int id;    /* FS: ID is the file for the pin */
-  unsigned char bank; /* MMAP: GPIO bank determines register */
-  unsigned int mask;  /* MMAP: Mask determines bit in register */
+  unsigned int id;    /**< FS: ID is the file for the pin */
+  unsigned char bank; /**< MMAP: GPIO bank determines register */
+  unsigned int mask;  /**< MMAP: Mask determines bit in register */
 } GPIOBit_t;
+
+/** 
+ * static GPIOBit_t variable to store P8 header pins.
+ */
 
 static GPIOBit_t P8_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
  {  0, 0, 0},       /* P8_01, GND */
@@ -88,6 +97,10 @@ static GPIOBit_t P8_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
  { 70, 2, 1 << 6},	/* P8_45, GPIO2[6] */
  { 71, 2, 1 << 7}	/* P8_46, GPIO2[7] */
 };
+
+/** 
+ * static GPIOBit_t variable to store P9 header pins.
+ */
 
 static GPIOBit_t P9_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
  {  0, 0, 0},       /* P9_01, Power/Control */
@@ -139,11 +152,19 @@ static GPIOBit_t P9_GPIO_pin_info[TOTAL_PINS_PER_HEADER] = {
 };
 
 static const uint32_t gpioAddrs[] = 
-  { 0x44E07000, 0x4804C000, 0x481AC000, 0x481AE000 };
-static uint32_t *mapGPIO[4];
-static int fdGPIO = 0;
-static int initialized = 0;
-static int usingMmap = 0;
+  { 0x44E07000, 0x4804C000, 0x481AC000, 0x481AE000 };	/**< Register Bank addresses */
+static uint32_t *mapGPIO[4];	/**< Variable for GPIO memory map */
+static int fdGPIO = 0;			/**< File descriptor for GPIO for file system access */
+static int initialized = 0;		/**< Variable to check if GPIO is initialized earlier */
+static int usingMmap = 0;		/**< Variable to check if Memory map access mode for GPIO is set */
+
+/**
+ * This function takes parameter input useMmap
+ * to take choice if you want to use Memory Map to access GPIO or to access it using 
+ * file system. If using memory map then a proper file descriptor is set.
+ * @param useMmap a constant integer argument.
+ * @return If successful then 0 is returned and if it fails then 1 is returned.
+ */
 
 int openGPIO(const int useMmap)
 {
@@ -176,6 +197,13 @@ int openGPIO(const int useMmap)
   return 0;
 }
 
+/**
+ * This function takes input pointer to GPIOBit_t type structure which stores information about a pin.
+ * This pin information is then used to get DATA IN register and read the GPIO.
+ * @param *pinGPIO a constant GPIOBit_t argument.
+ * @return The bit for the GPIO that we're interested in.
+ */
+
 static int readGPIOMmap(const GPIOBit_t *pinGPIO) 
 {
   unsigned int reg;
@@ -186,6 +214,13 @@ static int readGPIOMmap(const GPIOBit_t *pinGPIO)
   /* Return the bit for the GPIO that we're interested in */
   return (reg & pinGPIO->mask);
 }
+
+/**
+ * This function takes input pointer to GPIOBit_t type structure which stores information about a pin.
+ * This pin information is then used to get DATA OUT register and OE register to write to GPIO.
+ * @param *pinGPIO a constant GPIOBit_t argument.
+ * @return 0
+ */
 
 static int writeGPIOMmap(const GPIOBit_t *pinGPIO, 
   const unsigned int value) 
@@ -210,6 +245,13 @@ static int writeGPIOMmap(const GPIOBit_t *pinGPIO,
   return 0;
 }
 
+/**
+ * This function takes input pointer to GPIOBit_t type structure which stores information about a pin.
+ * This pin information is then used to get pin id to read from GPIO.
+ * @param *pinGPIO a constant GPIOBit_t argument.
+ * @return 1 if read 1 and 0 if read 0;
+ */
+
 static int readGPIOFS(const GPIOBit_t *pinGPIO)
 {
   int fd, len;
@@ -231,6 +273,13 @@ static int readGPIOFS(const GPIOBit_t *pinGPIO)
 
   return 0;
 }
+
+/**
+ * This function takes input pointer to GPIOBit_t type structure which stores information about a pin.
+ * This pin information is then used to get pin id to write to GPIO.
+ * @param *pinGPIO a constant GPIOBit_t argument.
+ * @return 0 if successfull and 1 if it fails
+ */
 
 static int writeGPIOFS(const GPIOBit_t *pinGPIO, 
   const unsigned int value)
@@ -256,6 +305,17 @@ static int writeGPIOFS(const GPIOBit_t *pinGPIO,
   close(fd);
   return 0;
 }
+
+/**
+ * It takes input GPIO header and pin and reads its value after opening its file.
+ * If Memory Map is used then proper bit value is read using the file descriptor initialized in openGPIO() function call.
+ * Proper bit positions for all the GPIOs are present in GPIOBit_t arrays of each P8 and P9 header.
+ * @param header a constant unsigned int argument.
+ * @param pin a constant unsigned int argument.
+ * @see readGPIOMmap()
+ * @see readGPIOFS()
+ * @return 1 if read 1 and 0 if read 0;
+ */
 
 int readGPIO(const unsigned int header, const unsigned int pin) 
 {
@@ -287,6 +347,17 @@ int readGPIO(const unsigned int header, const unsigned int pin)
     return 0;
 }
 
+/**
+ * It takes input GPIO header, pin and value that is required to be set on GPIO after opening corresponding GPIO file.
+ * If Memory Map is used then proper bit value is set using the file descriptor initialized in openGPIO() function call.
+ * Proper bit positions for all the GPIOs are present in GPIOBit_t arrays of each P8 and P9 header.
+ * @param header a constant unsigned int argument.
+ * @param pin a constant unsigned int argument.
+ * @see writeGPIOMmap()
+ * @see writeGPIOFS()
+ * @return 0 if successfull and 1 if it fails
+ */
+
 int writeGPIO(const unsigned int header, const unsigned int pin,
   const unsigned int value) 
 {
@@ -317,6 +388,10 @@ int writeGPIO(const unsigned int header, const unsigned int pin,
   else
     return 0;
 }
+
+/**
+ * For closing file descriptor if accessed using file system and set initialized to 0.
+ */
 
 void closeGPIO(void) {
   if (initialized)

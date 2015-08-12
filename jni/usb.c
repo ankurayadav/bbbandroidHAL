@@ -16,10 +16,16 @@
 #include "bbbandroidHAL.h"
 #include <string.h>
 
-static libusb_device **devs; //pointer to pinter of device to get list of devices
-static int ret;
-static libusb_context *ctx = NULL; //libusb session
-static ssize_t count;  //To store number of devices in the list
+static libusb_device **devs;        /**< pointer to pinter of device to get list of devices */
+static int ret;                     /**< To store return values for some functions internally */
+static libusb_context *ctx = NULL;  /**< To store libusb session */
+static ssize_t count;               /**< To store number of devices in the list */
+
+/**
+ * It creates USB session and gets number of USB devices attached 
+ * and then returns number of USB devices attached.
+ * @return If successful then number of USB devices attached is returned and if it fails then -1 is returned.
+ */
 
 ssize_t usbInit()
 {
@@ -37,6 +43,16 @@ ssize_t usbInit()
 
 	return count;
 }
+
+/**
+ * This function takes one 2D array to store IDs (bus, device, manufacturer and vendor) for each USB device
+ * and one 3D array to store path, manufacturer descriptor and vendor descriptor.
+ * It returns 0 if successful and -1 if it fails. It is only to demonstrate and develop lsusb kind of app.
+ * Similar functions can be made using libusb for other functionalities of USB.
+ * @param ids 2D integer array argument.
+ * @param strings 3D unsigned character argument.
+ * @return 0 if successful and -1 if it fails.
+ */
 
 int usbGetDevices(int ids[][8], unsigned char strings[][3][256])
 {
@@ -138,6 +154,10 @@ int usbGetDevices(int ids[][8], unsigned char strings[][3][256])
 
 	return 0;
 }
+
+/**
+ * This function is used to close USB devices.
+ */
 
 void usbClose()
 {

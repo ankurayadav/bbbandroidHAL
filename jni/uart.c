@@ -17,7 +17,13 @@
 #include <fcntl.h>
 #include "bbbandroidHAL.h"
 
-#define MAX_PATH 50
+#define MAX_PATH 50	/**< Maximum buffer for creating path using snprintf() */
+
+/**
+ * This function takes input baudrate and returns its proper macro value using switch case.
+ * @param baudrate an integer argument.
+ * @return macro corresponding to baudrate if it is present in switch cases otherwise -1.
+ */
 
 static speed_t baudrate(int baudrate)
 {
@@ -59,6 +65,16 @@ static speed_t baudrate(int baudrate)
 	return -1;
 }
 
+/**
+ * This takes device number and baud rate as input
+ * and opens uart deivce with specified baud rate and returns the file descriptor.
+ * It internally uses baudrate() to get proper value using macro.
+ * @param device an unsigned integer argument.
+ * @param bdrate an unsigned integer argument.
+ * @see baudrate()
+ * @return If successful then UART file descriptor is returned and if it fails then -1 is returned.
+ */
+
 int uartOpen(unsigned int device, unsigned int bdrate)
 {
 	char fsBuf[MAX_PATH] ;
@@ -99,6 +115,15 @@ int uartOpen(unsigned int device, unsigned int bdrate)
 	return uartFD;
 }
 
+/**
+ * This function takes file descriptor, length of data bytes to be transferred
+ * and pointer to the array of bytes to be transferred as input and sends it using write system call.
+ * @param uartFD an integer argument.
+ * @param length an integer argument.
+ * @param bytes an unsigned character pointer argument.
+ * @return 0 if successful and -1 if it fails.
+ */
+
 int uartWrite(int uartFD, int length, unsigned char *bytes)
 {  
 	if(write(uartFD, bytes, length)<0)
@@ -109,6 +134,15 @@ int uartWrite(int uartFD, int length, unsigned char *bytes)
 	return 0;
 }
 
+/**
+ * This functions takes file descriptor, length of data bytes to be received
+ * and pointer to array to store the bytes received as input and reads data from UART using read system call.
+ * @param uartFD an integer argument.
+ * @param length an integer argument.
+ * @param bytes an unsigned character pointer argument.
+ * @return 0 if successful and -1 if it fails.
+ */
+
 int uartRead(int uartFD, int length, unsigned char *bytes)
 {  
 	if(read(uartFD, bytes, length)<0)
@@ -118,6 +152,11 @@ int uartRead(int uartFD, int length, unsigned char *bytes)
 
 	return 0;
 }
+
+/**
+ * This function is used to close UART file descriptor.
+ * @param uartFD an integer argument.
+ */
 
 void uartClose(int uartFD)
 {
