@@ -345,6 +345,52 @@ void JAVA_CLASS_PATH(i2cClose)(JNIEnv *env, jobject this, jint i2cFD)
 
 /* End the JNI wrapper funtions for the I2C app */
 
+/* End the JNI wrapper funtions for the SPI app */
+
+jint JAVA_CLASS_PATH(spiOpen)(JNIEnv *env, jobject this, jint bus, jint device, jint speed, jint mode, jint bpw)
+{
+	jint ret;
+	ret = spiOpen(bus, device, speed, mode, bpw) ;
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "spiOpen(%d, %d, %d, %d, %d) failed!", (unsigned int) bus, (unsigned int) device, (unsigned int) speed, (unsigned int) mode, (unsigned int) bpw);
+		return -1;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "spiOpen(%d, %d, %d, %d, %d) succeeded", (unsigned int) bus, (unsigned int) device, (unsigned int) speed, (unsigned int) mode, (unsigned int) bpw);
+	}
+
+	return ret;
+}
+
+jint JAVA_CLASS_PATH(spiWriteByte)(JNIEnv *env, jobject this, jint spiFD, jbyte data)
+{
+	jint ret;
+	
+	unsigned char value = data; 
+	unsigned char null = 0x00;
+	
+	ret = spiTransfer(spiFD, &value, &null, 1);
+
+	if ( ret == -1 ) {
+		__android_log_print(ANDROID_LOG_ERROR, BBBANDROID_NATIVE_TAG, "spiWriteByte(%d, %d) failed!", (unsigned int) spiFD, (unsigned int) data);
+		return -1;
+	} else {
+		__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "spiWriteByte(%d, %d) succeeded", (unsigned int) spiFD, (unsigned int) data);
+	}
+
+	return ret;
+}
+
+void JAVA_CLASS_PATH(spiClose)(JNIEnv *env, jobject this, jint spiFD)
+{
+	spiClose(spiFD) ;
+
+	__android_log_print(ANDROID_LOG_DEBUG, BBBANDROID_NATIVE_TAG, "spiClose(%d, bytearray) succeeded", (unsigned int) spiFD);
+
+}
+
+/* End the JNI wrapper funtions for the SPI app */
+
 /* Begin the JNI wrapper functions for the UART app */
 
 jint JAVA_CLASS_PATH(uartOpen)(JNIEnv *env, jobject this, jint device, jint bdrate)
