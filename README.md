@@ -38,7 +38,7 @@ dtc -O dtb -o DEVICE-TREE-00A0.dtbo -b 0 -@ DEVICE-TREE-00A0.dts
 adb push DEVICE-TREE-00A0.dtbo /system/vendor/firmware/
 echo DEVICE-TREE > /sys/devices/bone_capemgr.9/slots 
 </pre></code>
-After installing device tree overlay we can export pins provide proper permissions.
+After installing device tree overlay we can export pins and provide proper permissions.
 4. **Exporting GPIO** :
 <pre><code>
 cd /sys/class/gpio/
