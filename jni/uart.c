@@ -21,11 +21,11 @@
 
 /**
  * This function takes input baudrate and returns its proper macro value using switch case.
- * @param baudrate an integer argument.
+ * @param baudrate a constant integer argument.
  * @return macro corresponding to baudrate if it is present in switch cases otherwise -1.
  */
 
-static speed_t baudrate(int baudrate)
+static speed_t baudrate(const int baudrate)
 {
 	switch(baudrate)
 	{
@@ -69,13 +69,13 @@ static speed_t baudrate(int baudrate)
  * This takes device number and baud rate as input
  * and opens uart deivce with specified baud rate and returns the file descriptor.
  * It internally uses baudrate() to get proper value using macro.
- * @param device an unsigned integer argument.
- * @param bdrate an unsigned integer argument.
+ * @param device a constant uint8_t argument.
+ * @param bdrate a constant uint8_t argument.
  * @see baudrate()
  * @return If successful then UART file descriptor is returned and if it fails then -1 is returned.
  */
 
-int uartOpen(unsigned int device, unsigned int bdrate)
+int uartOpen(const uint8_t device, const uint32_t bdrate)
 {
 	char fsBuf[MAX_PATH] ;
 	int uartFD ;
@@ -118,13 +118,13 @@ int uartOpen(unsigned int device, unsigned int bdrate)
 /**
  * This function takes file descriptor, length of data bytes to be transferred
  * and pointer to the array of bytes to be transferred as input and sends it using write system call.
- * @param uartFD an integer argument.
- * @param length an integer argument.
- * @param bytes an unsigned character pointer argument.
+ * @param uartFD a constant integer argument.
+ * @param length a constant integer argument.
+ * @param bytes a constant uint8_t pointer argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int uartWrite(int uartFD, int length, unsigned char *bytes)
+int uartWrite(const int uartFD, const int length, const uint8_t *bytes)
 {  
 	if(write(uartFD, bytes, length)<0)
 	{
@@ -137,13 +137,13 @@ int uartWrite(int uartFD, int length, unsigned char *bytes)
 /**
  * This functions takes file descriptor, length of data bytes to be received
  * and pointer to array to store the bytes received as input and reads data from UART using read system call.
- * @param uartFD an integer argument.
- * @param length an integer argument.
- * @param bytes an unsigned character pointer argument.
+ * @param uartFD a constant integer argument.
+ * @param length a constant integer argument.
+ * @param bytes a constant uint8_t pointer argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int uartRead(int uartFD, int length, unsigned char *bytes)
+int uartRead(const int uartFD, const int length, uint8_t *bytes)
 {  
 	if(read(uartFD, bytes, length)<0)
 	{
@@ -155,10 +155,10 @@ int uartRead(int uartFD, int length, unsigned char *bytes)
 
 /**
  * This function is used to close UART file descriptor.
- * @param uartFD an integer argument.
+ * @param uartFD a constant integer argument.
  */
 
-void uartClose(int uartFD)
+	void uartClose(const int uartFD)
 {
 	close(uartFD);
 }

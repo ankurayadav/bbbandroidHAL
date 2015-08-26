@@ -77,10 +77,10 @@ extern int canSendBytes(const int canFD, const int no_bytes, const uint8_t data[
 extern void canClose(const int canFD);
 
 /* UART interfacing functions */
-extern int uartOpen(unsigned int device, unsigned int bdrate);
-extern int uartWrite(int uartFD, int length, unsigned char *bytes);
-extern int uartRead(int uartFD, int length, unsigned char *bytes);
-extern void uartClose(int uartFD);
+extern int uartOpen(const uint8_t device, const uint32_t bdrate);
+extern int uartWrite(const int uartFD, const int length, const uint8_t *bytes);
+extern int uartRead(const int uartFD, const int length, uint8_t *bytes);
+extern void uartClose(const int uartFD);
 
 /* USB interfacing functions */
 extern ssize_t usbInit();
