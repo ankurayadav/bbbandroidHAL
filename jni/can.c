@@ -32,12 +32,12 @@
 /**
  * This function takes socket_type and protocol as input and opens socket of that type and protocol
  * and then returns file descriptor.
- * @param socket_type an integer argument.
- * @param protocol an integer argument.
+ * @param socket_type a constant integer argument.
+ * @param protocol a constant integer argument.
  * @return If successful then CAN file descriptor after opening socket is returned and if it fails then -1 is returned.
  */
 
-int canOpenSocket(int socket_type, int protocol)
+int canOpenSocket(const int socket_type, const int protocol)
 {
 	int canFD = socket(PF_CAN, socket_type, protocol);
 
@@ -85,12 +85,12 @@ int canOpenRaw(const char *port)
 /**
  * This functions takes file descriptor and length of data to be read as input
  * and returns the pointer to the array of data bytes read. If no data is read then NULL pointer is returned.
- * @param fd an integer argument.
- * @param length an integer pointer argument.
+ * @param fd a constant integer argument.
+ * @param length a constant integer pointer argument.
  * @return The pointer to the array of data bytes read. If no data is read then NULL pointer is returned.
  */
 
-unsigned char* canReadBytes(int fd, int *length)
+unsigned char* canReadBytes(const int fd, int *length)
 {
 	struct can_frame frame;
 
@@ -130,13 +130,13 @@ unsigned char* canReadBytes(int fd, int *length)
 /**
  * This function takes can file descriptor, number of bytes and array of data to be transferred
  * as input and writes given number of bytes of data from data buffer.
- * @param canFD an integer argument.
- * @param no_bytes an unsigned integer argument.
- * @param data array of unsigned char argument.
+ * @param canFD a constant integer argument.
+ * @param no_bytes a constant unsigned integer argument.
+ * @param data array of constant uint8_t argument.
  * @return number of bytes successfully written to CAN device.
  */
 
-int canSendBytes(int canFD, unsigned int no_bytes, unsigned char data[])
+int canSendBytes(const int canFD, const int no_bytes, const uint8_t data[])
 {
 	struct can_frame frame;
 	frame.can_id = 0x123;
@@ -159,10 +159,10 @@ int canSendBytes(int canFD, unsigned int no_bytes, unsigned char data[])
 
 /**
  * This function is used to close CAN file descriptor.
- * @param canFD an integer argument.
+ * @param canFD a constant integer argument.
  */
 
-void canClose(int canFD)
+void canClose(const int canFD)
 {
 	close(canFD);
 }

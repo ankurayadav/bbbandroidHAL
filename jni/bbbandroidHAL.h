@@ -70,11 +70,11 @@ extern int spiSetBitsPerWord(const int spiFD, const uint8_t bpw);
 extern void spiClose(const int spiFD);
 
 /* CAN interfacing functions */
-extern int canOpenSocket(int socket_type, int protocol);
+extern int canOpenSocket(const int socket_type, const int protocol);
 extern int canOpenRaw(const char *port);
-extern unsigned char* canReadBytes(int fd, int *length);
-extern int canSendBytes(int fd, unsigned int no_bytes, unsigned char data[]);
-extern void canClose(int fd);
+extern unsigned char* canReadBytes(const int fd, int *length);
+extern int canSendBytes(const int canFD, const int no_bytes, const uint8_t data[]);
+extern void canClose(const int canFD);
 
 /* UART interfacing functions */
 extern int uartOpen(unsigned int device, unsigned int bdrate);
