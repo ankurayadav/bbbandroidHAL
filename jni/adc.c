@@ -27,7 +27,7 @@ static char fsBuf[100]; /**< Buffer to store generated file system path using sn
  * @return If successful then value of ADC channel is returned and if it fails then -1 is returned.
  */
 
-uint32_t readADC(unsigned int channel)
+int readADC(const unsigned int channel)
 {
 	FILE *fd;
 	int value;
