@@ -22,7 +22,7 @@
 
 /**
  * This function takes I2C adapter number as input and returns a file descriptor for accessing that I2C adapter.
- * @param adaptorNumber an constant uint8_t argument.
+ * @param adaptorNumber a constant uint8_t argument.
  * @return If successful then I2C file descriptor is returned and if it fails then -1 is returned.
  */
 
@@ -45,8 +45,8 @@ int i2cOpenAdaptor(const uint8_t adaptorNumber)
 /**
  * This takes I2C adapter file descriptor and address at which device is attached as input
  * and sets slave for file descriptor using ioctl call.
- * @param i2cFD an integer argument.
- * @param address an uint8_t argument.
+ * @param i2cFD a constant integer argument.
+ * @param address a constant uint8_t argument.
  * @return If successful then 0 is returned and if it fails then -1 is returned.
  */
 
@@ -63,8 +63,8 @@ int i2cSetSlave(const int i2cFD, const uint8_t address)
 /**
  * This is used by some other functions internally for random access of sensor registers.
  * It takes file descriptor and random address as input to which file descriptor should point.
- * @param i2cFD an integer argument.
- * @param add an unsigned character argument.
+ * @param i2cFD a constant integer argument.
+ * @param add a constant uint8_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -81,9 +81,9 @@ int i2cSetAddress(const int i2cFD, const uint8_t add)
 /**
  * This function takes file descriptor, address of register to write
  * and byte to be written as input and writes byte provided in the argument at the address provided.
- * @param i2cFD an integer argument.
- * @param add an unsigned character argument.
- * @param byte an unsigned character argument.
+ * @param i2cFD a constant integer argument.
+ * @param add a constant uint8_t argument.
+ * @param byte a constant uint8_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -105,10 +105,10 @@ int i2cWriteByte(const int i2cFD, const uint8_t add, const uint8_t byte)
 /**
  * It takes i2c file descriptor, start address of registers to be written, length of data and array containing bytes of data as input.
  * This function is used to write bytes provided in argument from the address provided to address+length continuously.
- * @param i2cFD an integer argument.
- * @param add an unsigned character argument.
- * @param length an integer argument.
- * @param bytes an uint8_t pointer argument.
+ * @param i2cFD a constant integer argument.
+ * @param add a constant uint8_t argument.
+ * @param length a constant integer argument.
+ * @param bytes a constant uint8_t pointer argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -126,8 +126,8 @@ int i2cWriteBytes(const int i2cFD, const uint8_t add, const int length, const ui
  * It takes file descriptor and address of register from which data is to be read.
  * It reads a byte from the address provided in input and returns the byte.
  * It internally uses i2cSetAddress() to set pointer to proper address.
- * @param i2cFD an integer argument.
- * @param add an unsigned character argument.
+ * @param i2cFD a constant integer argument.
+ * @param add a constant uint8_t argument.
  * @see i2cSetAddress()
  * @return byte on success and -1 if it fails.
  */
@@ -150,9 +150,9 @@ int i2cReadByte(const int i2cFD, const uint8_t add)
  * It takes file descriptor, starting address of register from which data is to be read, length of 
  * data to be read and buffer to store the data as input.
  * It is used to get 'length' number of bytes in 'buff' array from 'add' starting address.
- * @param i2cFD an integer argument.
- * @param add an unsigned character argument.
- * @param length an integer argument.
+ * @param i2cFD a constant integer argument.
+ * @param add a constant uint8_t argument.
+ * @param length a constant integer argument.
  * @param bytes an uint8_t pointer argument.
  * @return 0 on success and -1 if it fails.
  */
@@ -172,7 +172,7 @@ int i2cReadBytes(const int i2cFD, const uint8_t add, const int length, uint8_t *
 
 /**
  * This function is used to close I2C file descriptor.
- * @param i2cFD an integer argument.
+ * @param i2cFD a constant integer argument.
  */
 
 void i2cClose(const int i2cFD)

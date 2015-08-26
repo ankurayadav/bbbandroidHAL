@@ -22,8 +22,8 @@ static char fsBuf[100];	/**< Buffer to store generated file system path using sn
 /**
  * It takes channel and period to be assigned in nano seconds 
  * and sets period of that channel to specified value using file system.
- * @param channel a constant unsigned integer argument.
- * @param period_ns a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
+ * @param period_ns a constant uint32_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -49,7 +49,7 @@ int pwmSetPeriod(const uint8_t channel, const uint32_t period_ns)
 /**
  * It takes channel number as input
  * and returns the value of period of specified channel in nano seconds.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return value of period on success and -1 if it fails.
  */
 
@@ -76,8 +76,8 @@ int pwmGetPeriod(const uint8_t channel)
 /**
  * It takes channel and duty cycle to be assigned in nano seconds
  * and sets duty cycle of that channel to specified value using file system.
- * @param channel a constant unsigned integer argument.
- * @param duration_ns a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
+ * @param duration_ns a constant uint32_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -103,7 +103,7 @@ int pwmSetDutyCycle(const uint8_t channel, const uint32_t duration_ns)
 /**
  * It takes channel number as input and
  * returns the value of duty cycle of specified channel in nano seconds.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return value of duty cycle on success and -1 if it fails.
  */
 
@@ -130,8 +130,8 @@ int pwmGetDutyCycle(const uint8_t channel)
 /**
  * It takes channel and polarity to be assigned
  * and sets polarity of that channel to the specified value using file system.
- * @param channel a constant unsigned integer argument.
- * @param polarity a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
+ * @param polarity a constant uint8_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -157,7 +157,7 @@ int pwmSetPolarity(const uint8_t channel, const uint8_t polarity)
 /**
  * It takes channel number as input and 
  * returns the value of polarity of specified channel.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return value of polarity on success and -1 if it fails.
  */
 
@@ -184,7 +184,7 @@ int pwmGetPolarity(const uint8_t channel)
 /**
  * It takes channel number as input and sets run 
  * for that channel so that pwm starts running for that channel.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -210,7 +210,7 @@ int pwmRun(const uint8_t channel)
 /**
  * It takes channel number as input and sets run 
  * to 0 for that channel so that pwm stops for that channel.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return 0 on success and -1 if it fails.
  */
 
@@ -236,7 +236,7 @@ int pwmStop(const uint8_t channel)
 /**
  * It takes channel number as input and 
  * returns the value of run for that channel.
- * @param channel a constant unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return value of run on success and -1 if it fails.
  */
 
