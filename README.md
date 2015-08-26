@@ -95,3 +95,6 @@ ip link show vcan0
 cd /dev/bus/usb/
 chmod -R 0777 .
 </pre></code>
+
+###**Youtube videos can be found here.**
+[![bbbandroidHAL](http://img.youtube.com/vi/3A9nzUyZhK0/0.jpg)](https://www.youtube.com/watch?v=3A9nzUyZhK0&list=PLDNV7JsQ-z7qSjSL-pHxOOhNqTjHKsa9R)
