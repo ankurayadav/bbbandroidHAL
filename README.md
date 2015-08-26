@@ -90,7 +90,7 @@ ip link add dev vcan0 type vcan
 ip link set up vcan0
 ip link show vcan0
 </pre></code>
-10. **Accessing USB*** :
+10. **Accessing USB** :
 <pre><code>
 cd /dev/bus/usb/
 chmod -R 0777 .
