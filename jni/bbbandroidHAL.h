@@ -34,15 +34,15 @@ const unsigned int value);
 extern void closeGPIO(void);
 
 /* PWM interfacing functions */
-extern int pwmSetPeriod(unsigned int channel, unsigned int period_ns);
-extern unsigned int pwmGetPeriod(unsigned int channel);
-extern int pwmSetDutyCycle(unsigned int channel, unsigned int duration_ns);
-extern int pwmGetDutyCycle(unsigned int channel);
-extern int pwmSetPolarity(unsigned int channel, unsigned int polarity);
-extern int pwmGetPolarity(unsigned int channel);
-extern int pwmRun(unsigned int channel);
-extern int pwmStop(unsigned int channel);
-extern int pwmRunCheck(unsigned int channel);
+extern int pwmSetPeriod(const uint8_t channel, const uint32_t period_ns);
+extern int pwmGetPeriod(const uint8_t channel);
+extern int pwmSetDutyCycle(const uint8_t channel, const uint32_t duration_ns);
+extern int pwmGetDutyCycle(const uint8_t channel);
+extern int pwmSetPolarity(const uint8_t channel, const uint8_t polarity);
+extern int pwmGetPolarity(const uint8_t channel);
+extern int pwmRun(const uint8_t channel);
+extern int pwmStop(const uint8_t channel);
+extern int pwmRunCheck(const uint8_t channel);
 
 /* ADC interfacing functions */
 extern int readADC(const uint8_t channel);
