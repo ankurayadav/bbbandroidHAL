@@ -45,7 +45,7 @@ extern int pwmStop(unsigned int channel);
 extern int pwmRunCheck(unsigned int channel);
 
 /* ADC interfacing functions */
-extern int readADC(const unsigned int channel);
+extern int readADC(const uint8_t channel);
 
 /* I2C interfacing functions */
 extern int i2cOpenAdaptor(const uint8_t adaptorNumber);

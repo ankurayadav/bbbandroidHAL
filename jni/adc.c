@@ -23,11 +23,11 @@ static char fsBuf[100]; /**< Buffer to store generated file system path using sn
 
 /**
  * It takes ADC channel number as the input and reads its value using file system access and then returns its value.
- * @param channel an unsigned integer argument.
+ * @param channel a constant uint8_t argument.
  * @return If successful then value of ADC channel is returned and if it fails then -1 is returned.
  */
 
-int readADC(const unsigned int channel)
+int readADC(const uint8_t channel)
 {
 	FILE *fd;
 	int value;
