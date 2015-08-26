@@ -48,14 +48,14 @@ extern int pwmRunCheck(unsigned int channel);
 extern int readADC(const unsigned int channel);
 
 /* I2C interfacing functions */
-extern int i2cOpenAdaptor(uint8_t adaptorNumber);
-extern int i2cSetSlave(int i2cFD, uint8_t address);
-extern void i2cClose(int i2cFD);
-extern int i2cSetAddress(int i2cFD, unsigned char add);
-extern int i2cWriteByte(int i2cFD, unsigned char add, unsigned char byte);
-extern int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes);
-extern int i2cReadByte(int i2cFD, unsigned char add);
-extern int i2cReadBytes(int i2cFD, unsigned char add, int length, uint8_t *buff);
+extern int i2cOpenAdaptor(const uint8_t adaptorNumber);
+extern int i2cSetSlave(const int i2cFD, const uint8_t address);
+extern void i2cClose(const int i2cFD);
+extern int i2cSetAddress(const int i2cFD, const uint8_t add);
+extern int i2cWriteByte(const int i2cFD, const uint8_t add, const uint8_t byte);
+extern int i2cWriteBytes(const int i2cFD, const uint8_t add, const int length, const uint8_t *bytes);
+extern int i2cReadByte(const int i2cFD, const uint8_t add);
+extern int i2cReadBytes(const int i2cFD, const uint8_t add, const int length, uint8_t *buff);
 
 /* SPI interfacing functions */
 extern int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw);

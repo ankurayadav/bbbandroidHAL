@@ -22,11 +22,11 @@
 
 /**
  * This function takes I2C adapter number as input and returns a file descriptor for accessing that I2C adapter.
- * @param adaptorNumber an uint8_t argument.
+ * @param adaptorNumber an constant uint8_t argument.
  * @return If successful then I2C file descriptor is returned and if it fails then -1 is returned.
  */
 
-int i2cOpenAdaptor(uint8_t adaptorNumber)
+int i2cOpenAdaptor(const uint8_t adaptorNumber)
 {
 	char fsBuf[MAX_PATH] ;
 	int i2cFD ;
@@ -50,7 +50,7 @@ int i2cOpenAdaptor(uint8_t adaptorNumber)
  * @return If successful then 0 is returned and if it fails then -1 is returned.
  */
 
-int i2cSetSlave(int i2cFD, uint8_t address)
+int i2cSetSlave(const int i2cFD, const uint8_t address)
 {
 	if (ioctl(i2cFD, I2C_SLAVE, address) < 0) 
 	{
@@ -68,7 +68,7 @@ int i2cSetSlave(int i2cFD, uint8_t address)
  * @return 0 on success and -1 if it fails.
  */
 
-int i2cSetAddress(int i2cFD, unsigned char add)
+int i2cSetAddress(const int i2cFD, const uint8_t add)
 {
    	if (i2c_smbus_write_byte(i2cFD, add) < 0)
    	{
@@ -87,7 +87,7 @@ int i2cSetAddress(int i2cFD, unsigned char add)
  * @return 0 on success and -1 if it fails.
  */
 
-int i2cWriteByte(int i2cFD, unsigned char add, unsigned char byte)
+int i2cWriteByte(const int i2cFD, const uint8_t add, const uint8_t byte)
 {
 	unsigned char buff[2];
    	
@@ -112,7 +112,7 @@ int i2cWriteByte(int i2cFD, unsigned char add, unsigned char byte)
  * @return 0 on success and -1 if it fails.
  */
 
-int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes)
+int i2cWriteBytes(const int i2cFD, const uint8_t add, const int length, const uint8_t *bytes)
 {
 	if(i2c_smbus_write_i2c_block_data(i2cFD, add, length, bytes) < 0)
 	{
@@ -132,7 +132,7 @@ int i2cWriteBytes(int i2cFD, unsigned char add, int length, uint8_t *bytes)
  * @return byte on success and -1 if it fails.
  */
 
-int i2cReadByte(int i2cFD, unsigned char add)
+int i2cReadByte(const int i2cFD, const uint8_t add)
 {
 	int byte;
 
@@ -157,7 +157,7 @@ int i2cReadByte(int i2cFD, unsigned char add)
  * @return 0 on success and -1 if it fails.
  */
 
-int i2cReadBytes(int i2cFD, unsigned char add, int length, uint8_t *buff)
+int i2cReadBytes(const int i2cFD, const uint8_t add, const int length, uint8_t *buff)
 {
 	if(i2c_smbus_read_i2c_block_data(i2cFD, add, length, buff) < 0)
 	{	
@@ -175,9 +175,7 @@ int i2cReadBytes(int i2cFD, unsigned char add, int length, uint8_t *buff)
  * @param i2cFD an integer argument.
  */
 
-void i2cClose(int i2cFD)
+void i2cClose(const int i2cFD)
 {
 	close(i2cFD);
-	
-	i2cFD = -1;
 }
