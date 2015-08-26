@@ -58,15 +58,16 @@ extern int i2cReadByte(const int i2cFD, const uint8_t add);
 extern int i2cReadBytes(const int i2cFD, const uint8_t add, const int length, uint8_t *buff);
 
 /* SPI interfacing functions */
-extern int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw);
-extern unsigned char spiReadByte(int spiFD, unsigned int regAdd);
-extern unsigned char* spiReadBytes(int spiFD, unsigned int len, unsigned int startAdd);
-extern int spiWriteRegByte(int spiFD, unsigned int regAdd, unsigned char data);
-extern int spiWriteBytes(int spiFD, unsigned char data[], int len);
-extern int spiSetMode(int spiFD, uint8_t mode);
-extern int spiSetSpeed(int spiFD, uint32_t speed);
-extern int spiSetBitsPerWord(int spiFD, uint8_t bpw);
-extern void spiClose(int spiFD);
+extern int spiTransfer(const int spiFD, const uint8_t tx[], const uint8_t rx[], const int len);
+extern int spiOpen(const uint8_t bus, const uint8_t device, const uint32_t speed, const uint8_t mode, const uint8_t bpw);
+extern int spiReadByte(const int spiFD, const uint8_t regAdd);
+extern unsigned char* spiReadBytes(const int spiFD, const int len, const uint8_t startAdd);
+extern int spiWriteRegByte(const int spiFD, const uint8_t regAdd, const uint8_t data);
+extern int spiWriteBytes(const int spiFD, const uint8_t data[], const int len);
+extern int spiSetMode(const int spiFD, const uint8_t mode);
+extern int spiSetSpeed(const int spiFD, const uint32_t speed);
+extern int spiSetBitsPerWord(const int spiFD, const uint8_t bpw);
+extern void spiClose(const int spiFD);
 
 /* CAN interfacing functions */
 extern int canOpenSocket(int socket_type, int protocol);

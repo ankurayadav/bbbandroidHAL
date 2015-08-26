@@ -29,14 +29,14 @@
  * This function takes input SPI file descriptor, tx buffer array to transmit data,
  * rx buffer array to receive data and length of data to be transferred.
  * It then transfers and receives data using ioctl function call.
- * @param spiFD an integer argument.
- * @param tx an unsigned character array argument.
- * @param rx an unsigned character array argument.
- * @param len an integer argument.
+ * @param spiFD a constant integer argument.
+ * @param tx a constant uint8_t array argument.
+ * @param rx a constant uint8_t array argument.
+ * @param len a constant integer argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int spiTransfer(int spiFD, unsigned char tx[], unsigned char rx[], int len)
+int spiTransfer(const int spiFD, const uint8_t tx[], const uint8_t rx[], const int len)
 {
 	struct spi_ioc_transfer	transfer;
 
@@ -57,12 +57,12 @@ int spiTransfer(int spiFD, unsigned char tx[], unsigned char rx[], int len)
 /**
  * It takes spi file descriptor and
  * register address as input and returns the value present at that address.
- * @param spiFD an integer argument.
- * @param regAdd an unsigned integer argument.
+ * @param spiFD a constant integer argument.
+ * @param regAdd a constant uint8_t argument.
  * @return value present at that address.
  */
 
-unsigned char spiReadByte(int spiFD, unsigned int regAdd)
+int spiReadByte(const int spiFD, const uint8_t regAdd)
 {
 	unsigned char tx[2], rx[2];
 	memset(tx, 0, sizeof tx);
@@ -79,13 +79,13 @@ unsigned char spiReadByte(int spiFD, unsigned int regAdd)
  * It takes file descriptor, length of data to be read and starting address of register from which data is to be read and
  * returns a pointer to the array of data bytes read.
  * It is used to get 'length' number of bytes in array from 'startAdd' starting address.
- * @param spiFD an integer argument.
- * @param len an integer argument.
- * @param startAdd an unsigned integer argument.
+ * @param spiFD a constant integer argument.
+ * @param len a constant integer argument.
+ * @param startAdd a constant uint8_t argument.
  * @return a pointer to the array of data bytes read.
  */
 
-unsigned char* spiReadBytes(int spiFD, unsigned int len, unsigned int startAdd)
+unsigned char* spiReadBytes(const int spiFD, const int len, const uint8_t startAdd)
 {
 	unsigned char* data = (unsigned char *)malloc(sizeof(unsigned char)*len);
 	unsigned char tx[len+1], rx[len+1];
@@ -102,13 +102,13 @@ unsigned char* spiReadBytes(int spiFD, unsigned int len, unsigned int startAdd)
 /**
  * This function takes file descriptor, address of register to write
  * and byte to be written as input and writes byte provided in the argument at the address provided.
- * @param spiFD an integer argument.
- * @param regAdd an unsigned integer argument.
- * @param data an unsigned character argument.
+ * @param spiFD a constant integer argument.
+ * @param regAdd a constant uint8_t argument.
+ * @param data a constant uint8_t argument.
  * @return 0
  */
 
-int spiWriteRegByte(int spiFD, unsigned int regAdd, unsigned char data)
+int spiWriteRegByte(const int spiFD, const uint8_t regAdd, const uint8_t data)
 {
 	unsigned char tx[2], rx[2];
 	memset(rx, 0, sizeof rx);
@@ -123,13 +123,13 @@ int spiWriteRegByte(int spiFD, unsigned int regAdd, unsigned char data)
 /**
  * It takes spi file descriptor , array of data to be written and length of data to be written as input.
  * It writes length number of data bytes from the data buffer provided.
- * @param spiFD an integer argument.
- * @param data an unsigned character argument argument.
- * @param len an integer argument.
+ * @param spiFD a constant integer argument.
+ * @param data a constant uint8_t argument argument.
+ * @param len a constant integer argument.
  * @return 0
  */
 
-int spiWriteBytes(int spiFD, unsigned char data[], int len)
+int spiWriteBytes(const int spiFD, const uint8_t data[], const int len)
 {
 	unsigned char null = 0x00;
 	
@@ -141,12 +141,12 @@ int spiWriteBytes(int spiFD, unsigned char data[], int len)
 /**
  * It takes file descriptor and mode as input and sets the mode provided in the argument
  * to the device represented by file descriptor.
- * @param spiFD an integer argument.
- * @param mode an uint8_t argument.
+ * @param spiFD a constant integer argument.
+ * @param mode a constant uint8_t argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int spiSetMode(int spiFD, uint8_t mode)
+int spiSetMode(const int spiFD, const uint8_t mode)
 {
 	if (ioctl(spiFD, SPI_IOC_WR_MODE, &mode)==-1)
 	{
@@ -164,12 +164,12 @@ int spiSetMode(int spiFD, uint8_t mode)
 /**
  * It takes file descriptor and speed as input and sets the speed provided in the argument
  * to the device represented by file descriptor.
- * @param spiFD an integer argument.
- * @param speed an uint32_t argument.
+ * @param spiFD a constant integer argument.
+ * @param speed a constant uint32_t argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int spiSetSpeed(int spiFD, uint32_t speed)
+int spiSetSpeed(const int spiFD, const uint32_t speed)
 {
 	if (ioctl(spiFD, SPI_IOC_WR_MAX_SPEED_HZ, &speed)==-1)
 	{
@@ -187,12 +187,12 @@ int spiSetSpeed(int spiFD, uint32_t speed)
 /**
  * It takes file descriptor and 'bpw' bits per word as input and sets the bpw provided in the argument
  * to the device represented by file descriptor.
- * @param spiFD an integer argument.
- * @param bpw an uint8_t argument.
+ * @param spiFD a constant integer argument.
+ * @param bpw a constant uint8_t argument.
  * @return 0 if successful and -1 if it fails.
  */
 
-int spiSetBitsPerWord(int spiFD, uint8_t bpw)
+int spiSetBitsPerWord(const int spiFD, const uint8_t bpw)
 {
 	if (ioctl(spiFD, SPI_IOC_WR_BITS_PER_WORD, &bpw)==-1)
 	{
@@ -210,15 +210,15 @@ int spiSetBitsPerWord(int spiFD, uint8_t bpw)
  * This function takes input bus number, device number, speed of device, mode of device and bits per word for the device
  * and internally opens the file and sets speed mode and bits per word for the device
  * using spiSetMode(), spiSetSpeed() and spiSetBitsPerWord() and then returns the file descriptor.
- * @param bus an unsigned integer argument.
- * @param device an unsigned integer argument.
- * @param speed an uint32_t argument.
- * @param mode an uuint8_t argument.
- * @param bpw an uuint8_t argument.
+ * @param bus a constant unsigned integer argument.
+ * @param device a constant uint8_t argument.
+ * @param speed a constant uint32_t argument.
+ * @param mode a constant uuint8_t argument.
+ * @param bpw a constant uuint8_t argument.
  * @return If successful then SPI file descriptor is returned and if it fails then -1 is returned.
  */
 
-int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw)    //bpw = pits per word
+int spiOpen(const uint8_t bus, const uint8_t device, const uint32_t speed, const uint8_t mode, const uint8_t bpw)    //bpw = pits per word
 {
 	char fsBuf[MAX_PATH] ;
 	int spiFD ;
@@ -240,10 +240,10 @@ int spiOpen(unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode,
 
 /**
  * This function is used to close SPI file descriptor.
- * @param spiFD an integer argument.
+ * @param spiFD a constant integer argument.
  */
 
-void spiClose(int spiFD)
+void spiClose(const int spiFD)
 {
 	close(spiFD);
 }
