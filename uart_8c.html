@@ -106,16 +106,16 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8db6e79bba44a061c3949ae320b23dfe"><td class="memItemLeft" align="right" valign="top">static speed_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a8db6e79bba44a061c3949ae320b23dfe">baudrate</a> (int baudrate)</td></tr>
-<tr class="separator:a8db6e79bba44a061c3949ae320b23dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acebd135ddf7afff53b7b285ebe73aa64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#acebd135ddf7afff53b7b285ebe73aa64">uartOpen</a> (unsigned int device, unsigned int bdrate)</td></tr>
-<tr class="separator:acebd135ddf7afff53b7b285ebe73aa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7838d1c403f81665bbb571bd03a1182e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a7838d1c403f81665bbb571bd03a1182e">uartWrite</a> (int uartFD, int length, unsigned char *bytes)</td></tr>
-<tr class="separator:a7838d1c403f81665bbb571bd03a1182e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e97478d63f4c48c6a4da59a774d90e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a1e97478d63f4c48c6a4da59a774d90e5">uartRead</a> (int uartFD, int length, unsigned char *bytes)</td></tr>
-<tr class="separator:a1e97478d63f4c48c6a4da59a774d90e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82556ab68cbb2b75f226070051225c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a82556ab68cbb2b75f226070051225c44">uartClose</a> (int uartFD)</td></tr>
-<tr class="separator:a82556ab68cbb2b75f226070051225c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2aa07b0b458fdbcc8ad9e76b2afba7"><td class="memItemLeft" align="right" valign="top">static speed_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a3d2aa07b0b458fdbcc8ad9e76b2afba7">baudrate</a> (const int baudrate)</td></tr>
+<tr class="separator:a3d2aa07b0b458fdbcc8ad9e76b2afba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8920879078a682567b9d6bfdec1b8b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#aa8920879078a682567b9d6bfdec1b8b3">uartOpen</a> (const uint8_t device, const uint32_t bdrate)</td></tr>
+<tr class="separator:aa8920879078a682567b9d6bfdec1b8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe8bb5a1f0ac619879baa32feb613cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a2fe8bb5a1f0ac619879baa32feb613cb">uartWrite</a> (const int uartFD, const int length, const uint8_t *bytes)</td></tr>
+<tr class="separator:a2fe8bb5a1f0ac619879baa32feb613cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0ccff7a2982d95af5f35489db245c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#aca0ccff7a2982d95af5f35489db245c9">uartRead</a> (const int uartFD, const int length, uint8_t *bytes)</td></tr>
+<tr class="separator:aca0ccff7a2982d95af5f35489db245c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06edb7ba8611208565143c85736bcc2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8c.html#a06edb7ba8611208565143c85736bcc2c">uartClose</a> (const int uartFD)</td></tr>
+<tr class="separator:a06edb7ba8611208565143c85736bcc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UART general purpose interface code for file system. </p>
@@ -135,7 +135,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a8db6e79bba44a061c3949ae320b23dfe"></a>
+<a class="anchor" id="a3d2aa07b0b458fdbcc8ad9e76b2afba7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,7 +145,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">static speed_t baudrate </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>baudrate</em></td><td>)</td>
           <td></td>
         </tr>
@@ -159,7 +159,7 @@ Functions</h2></td></tr>
 <p>This function takes input baudrate and returns its proper macro value using switch case. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">baudrate</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">baudrate</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -167,14 +167,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a82556ab68cbb2b75f226070051225c44"></a>
+<a class="anchor" id="a06edb7ba8611208565143c85736bcc2c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void uartClose </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>uartFD</em></td><td>)</td>
           <td></td>
         </tr>
@@ -183,27 +183,27 @@ Functions</h2></td></tr>
 <p>This function is used to close UART file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uartFD</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">uartFD</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="acebd135ddf7afff53b7b285ebe73aa64"></a>
+<a class="anchor" id="aa8920879078a682567b9d6bfdec1b8b3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int uartOpen </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>device</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint32_t&#160;</td>
           <td class="paramname"><em>bdrate</em>&#160;</td>
         </tr>
         <tr>
@@ -213,39 +213,39 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This takes device number and baud rate as input and opens uart deivce with specified baud rate and returns the file descriptor. It internally uses <a class="el" href="uart_8c.html#a8db6e79bba44a061c3949ae320b23dfe">baudrate()</a> to get proper value using macro. </p>
+<p>This takes device number and baud rate as input and opens uart deivce with specified baud rate and returns the file descriptor. It internally uses <a class="el" href="uart_8c.html#a3d2aa07b0b458fdbcc8ad9e76b2afba7">baudrate()</a> to get proper value using macro. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>an unsigned integer argument. </td></tr>
-    <tr><td class="paramname">bdrate</td><td>an unsigned integer argument. </td></tr>
+    <tr><td class="paramname">device</td><td>a constant uint8_t argument. </td></tr>
+    <tr><td class="paramname">bdrate</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="uart_8c.html#a8db6e79bba44a061c3949ae320b23dfe">baudrate()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="uart_8c.html#a3d2aa07b0b458fdbcc8ad9e76b2afba7">baudrate()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If successful then UART file descriptor is returned and if it fails then -1 is returned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1e97478d63f4c48c6a4da59a774d90e5"></a>
+<a class="anchor" id="aca0ccff7a2982d95af5f35489db245c9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int uartRead </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>uartFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>length</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>bytes</em>&#160;</td>
         </tr>
         <tr>
@@ -258,9 +258,9 @@ Functions</h2></td></tr>
 <p>This functions takes file descriptor, length of data bytes to be received and pointer to array to store the bytes received as input and reads data from UART using read system call. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uartFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">length</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">bytes</td><td>an unsigned character pointer argument. </td></tr>
+    <tr><td class="paramname">uartFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">length</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">bytes</td><td>a constant uint8_t pointer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -268,26 +268,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7838d1c403f81665bbb571bd03a1182e"></a>
+<a class="anchor" id="a2fe8bb5a1f0ac619879baa32feb613cb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int uartWrite </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>uartFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>length</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
           <td class="paramname"><em>bytes</em>&#160;</td>
         </tr>
         <tr>
@@ -300,9 +300,9 @@ Functions</h2></td></tr>
 <p>This function takes file descriptor, length of data bytes to be transferred and pointer to the array of bytes to be transferred as input and sends it using write system call. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uartFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">length</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">bytes</td><td>an unsigned character pointer argument. </td></tr>
+    <tr><td class="paramname">uartFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">length</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">bytes</td><td>a constant uint8_t pointer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 27 2015 03:55:36 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

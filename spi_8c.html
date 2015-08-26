@@ -115,26 +115,26 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aeb5fc78e1c37a5b26e3544b817a78a63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#aeb5fc78e1c37a5b26e3544b817a78a63">spiTransfer</a> (int spiFD, unsigned char tx[], unsigned char rx[], int len)</td></tr>
-<tr class="separator:aeb5fc78e1c37a5b26e3544b817a78a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32b87eee9f3ce1e94b6ecee2a7d974d2"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a32b87eee9f3ce1e94b6ecee2a7d974d2">spiReadByte</a> (int spiFD, unsigned int regAdd)</td></tr>
-<tr class="separator:a32b87eee9f3ce1e94b6ecee2a7d974d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1f0e9ab6bfc213d4067c72e1298d8a"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#abf1f0e9ab6bfc213d4067c72e1298d8a">spiReadBytes</a> (int spiFD, unsigned int len, unsigned int startAdd)</td></tr>
-<tr class="separator:abf1f0e9ab6bfc213d4067c72e1298d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a627f735412cd9888cd8480df5031a56b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a627f735412cd9888cd8480df5031a56b">spiWriteRegByte</a> (int spiFD, unsigned int regAdd, unsigned char data)</td></tr>
-<tr class="separator:a627f735412cd9888cd8480df5031a56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed45504189576940b764a9f22f9bac5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#aed45504189576940b764a9f22f9bac5f">spiWriteBytes</a> (int spiFD, unsigned char data[], int len)</td></tr>
-<tr class="separator:aed45504189576940b764a9f22f9bac5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb5134928411bc1a4b6711bed80f67c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#aadb5134928411bc1a4b6711bed80f67c">spiSetMode</a> (int spiFD, uint8_t mode)</td></tr>
-<tr class="separator:aadb5134928411bc1a4b6711bed80f67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263f19f98c91dcd9a09c7926edff7531"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a263f19f98c91dcd9a09c7926edff7531">spiSetSpeed</a> (int spiFD, uint32_t speed)</td></tr>
-<tr class="separator:a263f19f98c91dcd9a09c7926edff7531"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec46513a8420ddd697235853e615bf62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#aec46513a8420ddd697235853e615bf62">spiSetBitsPerWord</a> (int spiFD, uint8_t bpw)</td></tr>
-<tr class="separator:aec46513a8420ddd697235853e615bf62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a74515477fbfa0e49bef6d74cb3a9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a75a74515477fbfa0e49bef6d74cb3a9c">spiOpen</a> (unsigned int bus, unsigned int device, uint32_t speed, uint8_t mode, uint8_t bpw)</td></tr>
-<tr class="separator:a75a74515477fbfa0e49bef6d74cb3a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd6034b915d52565a858841a226bd016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#afd6034b915d52565a858841a226bd016">spiClose</a> (int spiFD)</td></tr>
-<tr class="separator:afd6034b915d52565a858841a226bd016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6936e5e59d93f35d64993b6ccc852df4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a6936e5e59d93f35d64993b6ccc852df4">spiTransfer</a> (const int spiFD, const uint8_t tx[], const uint8_t rx[], const int len)</td></tr>
+<tr class="separator:a6936e5e59d93f35d64993b6ccc852df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2d57238673acd3bdb23b57ee0faeda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a9c2d57238673acd3bdb23b57ee0faeda">spiReadByte</a> (const int spiFD, const uint8_t regAdd)</td></tr>
+<tr class="separator:a9c2d57238673acd3bdb23b57ee0faeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93cd508afc4ecac2d77b32b4aca78f2e"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a93cd508afc4ecac2d77b32b4aca78f2e">spiReadBytes</a> (const int spiFD, const int len, const uint8_t startAdd)</td></tr>
+<tr class="separator:a93cd508afc4ecac2d77b32b4aca78f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a16d88c885d1a614a0bbacf1f21086"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a95a16d88c885d1a614a0bbacf1f21086">spiWriteRegByte</a> (const int spiFD, const uint8_t regAdd, const uint8_t data)</td></tr>
+<tr class="separator:a95a16d88c885d1a614a0bbacf1f21086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad318a89438b5d8e386ef4a42e46384b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#ad318a89438b5d8e386ef4a42e46384b2">spiWriteBytes</a> (const int spiFD, const uint8_t data[], const int len)</td></tr>
+<tr class="separator:ad318a89438b5d8e386ef4a42e46384b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a633f290b52c4f96ae81f1e0601de632c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a633f290b52c4f96ae81f1e0601de632c">spiSetMode</a> (const int spiFD, const uint8_t mode)</td></tr>
+<tr class="separator:a633f290b52c4f96ae81f1e0601de632c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ced3d3fbd90e95456f1047efb3fb7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a84ced3d3fbd90e95456f1047efb3fb7d">spiSetSpeed</a> (const int spiFD, const uint32_t speed)</td></tr>
+<tr class="separator:a84ced3d3fbd90e95456f1047efb3fb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45600b0bf5ae6e5d73ad7ca39eb86990"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a45600b0bf5ae6e5d73ad7ca39eb86990">spiSetBitsPerWord</a> (const int spiFD, const uint8_t bpw)</td></tr>
+<tr class="separator:a45600b0bf5ae6e5d73ad7ca39eb86990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947f0a8c715f14234061383965437f81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#a947f0a8c715f14234061383965437f81">spiOpen</a> (const uint8_t bus, const uint8_t device, const uint32_t speed, const uint8_t mode, const uint8_t bpw)</td></tr>
+<tr class="separator:a947f0a8c715f14234061383965437f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa4b9149c80cf745cdbec1b3ab7efad0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html#afa4b9149c80cf745cdbec1b3ab7efad0">spiClose</a> (const int spiFD)</td></tr>
+<tr class="separator:afa4b9149c80cf745cdbec1b3ab7efad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>SPI general purpose interface code for file system. </p>
@@ -206,14 +206,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="afd6034b915d52565a858841a226bd016"></a>
+<a class="anchor" id="afa4b9149c80cf745cdbec1b3ab7efad0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void spiClose </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em></td><td>)</td>
           <td></td>
         </tr>
@@ -222,45 +222,45 @@ Functions</h2></td></tr>
 <p>This function is used to close SPI file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a75a74515477fbfa0e49bef6d74cb3a9c"></a>
+<a class="anchor" id="a947f0a8c715f14234061383965437f81"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiOpen </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>bus</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>device</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">const uint32_t&#160;</td>
           <td class="paramname"><em>speed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>mode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>bpw</em>&#160;</td>
         </tr>
         <tr>
@@ -270,14 +270,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function takes input bus number, device number, speed of device, mode of device and bits per word for the device and internally opens the file and sets speed mode and bits per word for the device using <a class="el" href="spi_8c.html#aadb5134928411bc1a4b6711bed80f67c">spiSetMode()</a>, <a class="el" href="spi_8c.html#a263f19f98c91dcd9a09c7926edff7531">spiSetSpeed()</a> and <a class="el" href="spi_8c.html#aec46513a8420ddd697235853e615bf62">spiSetBitsPerWord()</a> and then returns the file descriptor. </p>
+<p>This function takes input bus number, device number, speed of device, mode of device and bits per word for the device and internally opens the file and sets speed mode and bits per word for the device using <a class="el" href="spi_8c.html#a633f290b52c4f96ae81f1e0601de632c">spiSetMode()</a>, <a class="el" href="spi_8c.html#a84ced3d3fbd90e95456f1047efb3fb7d">spiSetSpeed()</a> and <a class="el" href="spi_8c.html#a45600b0bf5ae6e5d73ad7ca39eb86990">spiSetBitsPerWord()</a> and then returns the file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bus</td><td>an unsigned integer argument. </td></tr>
-    <tr><td class="paramname">device</td><td>an unsigned integer argument. </td></tr>
-    <tr><td class="paramname">speed</td><td>an uint32_t argument. </td></tr>
-    <tr><td class="paramname">mode</td><td>an uuint8_t argument. </td></tr>
-    <tr><td class="paramname">bpw</td><td>an uuint8_t argument. </td></tr>
+    <tr><td class="paramname">bus</td><td>a constant unsigned integer argument. </td></tr>
+    <tr><td class="paramname">device</td><td>a constant uint8_t argument. </td></tr>
+    <tr><td class="paramname">speed</td><td>a constant uint32_t argument. </td></tr>
+    <tr><td class="paramname">mode</td><td>a constant uuint8_t argument. </td></tr>
+    <tr><td class="paramname">bpw</td><td>a constant uuint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,20 +285,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a32b87eee9f3ce1e94b6ecee2a7d974d2"></a>
+<a class="anchor" id="a9c2d57238673acd3bdb23b57ee0faeda"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char spiReadByte </td>
+          <td class="memname">int spiReadByte </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>regAdd</em>&#160;</td>
         </tr>
         <tr>
@@ -311,8 +311,8 @@ Functions</h2></td></tr>
 <p>It takes spi file descriptor and register address as input and returns the value present at that address. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">regAdd</td><td>an unsigned integer argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">regAdd</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,26 +320,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abf1f0e9ab6bfc213d4067c72e1298d8a"></a>
+<a class="anchor" id="a93cd508afc4ecac2d77b32b4aca78f2e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">unsigned char* spiReadBytes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>len</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>startAdd</em>&#160;</td>
         </tr>
         <tr>
@@ -352,9 +352,9 @@ Functions</h2></td></tr>
 <p>It takes file descriptor, length of data to be read and starting address of register from which data is to be read and returns a pointer to the array of data bytes read. It is used to get 'length' number of bytes in array from 'startAdd' starting address. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">len</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">startAdd</td><td>an unsigned integer argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">len</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">startAdd</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -362,20 +362,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aec46513a8420ddd697235853e615bf62"></a>
+<a class="anchor" id="a45600b0bf5ae6e5d73ad7ca39eb86990"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiSetBitsPerWord </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>bpw</em>&#160;</td>
         </tr>
         <tr>
@@ -388,8 +388,8 @@ Functions</h2></td></tr>
 <p>It takes file descriptor and 'bpw' bits per word as input and sets the bpw provided in the argument to the device represented by file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">bpw</td><td>an uint8_t argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">bpw</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -397,20 +397,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aadb5134928411bc1a4b6711bed80f67c"></a>
+<a class="anchor" id="a633f290b52c4f96ae81f1e0601de632c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiSetMode </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>mode</em>&#160;</td>
         </tr>
         <tr>
@@ -423,8 +423,8 @@ Functions</h2></td></tr>
 <p>It takes file descriptor and mode as input and sets the mode provided in the argument to the device represented by file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">mode</td><td>an uint8_t argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">mode</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -432,20 +432,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a263f19f98c91dcd9a09c7926edff7531"></a>
+<a class="anchor" id="a84ced3d3fbd90e95456f1047efb3fb7d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiSetSpeed </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">const uint32_t&#160;</td>
           <td class="paramname"><em>speed</em>&#160;</td>
         </tr>
         <tr>
@@ -458,8 +458,8 @@ Functions</h2></td></tr>
 <p>It takes file descriptor and speed as input and sets the speed provided in the argument to the device represented by file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">speed</td><td>an uint32_t argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">speed</td><td>a constant uint32_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -467,32 +467,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aeb5fc78e1c37a5b26e3544b817a78a63"></a>
+<a class="anchor" id="a6936e5e59d93f35d64993b6ccc852df4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiTransfer </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>tx</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>rx</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -505,10 +505,10 @@ Functions</h2></td></tr>
 <p>This function takes input SPI file descriptor, tx buffer array to transmit data, rx buffer array to receive data and length of data to be transferred. It then transfers and receives data using ioctl function call. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">tx</td><td>an unsigned character array argument. </td></tr>
-    <tr><td class="paramname">rx</td><td>an unsigned character array argument. </td></tr>
-    <tr><td class="paramname">len</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">tx</td><td>a constant uint8_t array argument. </td></tr>
+    <tr><td class="paramname">rx</td><td>a constant uint8_t array argument. </td></tr>
+    <tr><td class="paramname">len</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -516,26 +516,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aed45504189576940b764a9f22f9bac5f"></a>
+<a class="anchor" id="ad318a89438b5d8e386ef4a42e46384b2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiWriteBytes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>data</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -548,9 +548,9 @@ Functions</h2></td></tr>
 <p>It takes spi file descriptor , array of data to be written and length of data to be written as input. It writes length number of data bytes from the data buffer provided. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">data</td><td>an unsigned character argument argument. </td></tr>
-    <tr><td class="paramname">len</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">data</td><td>a constant uint8_t argument argument. </td></tr>
+    <tr><td class="paramname">len</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -558,26 +558,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a627f735412cd9888cd8480df5031a56b"></a>
+<a class="anchor" id="a95a16d88c885d1a614a0bbacf1f21086"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int spiWriteRegByte </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>spiFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>regAdd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
@@ -590,9 +590,9 @@ Functions</h2></td></tr>
 <p>This function takes file descriptor, address of register to write and byte to be written as input and writes byte provided in the argument at the address provided. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">regAdd</td><td>an unsigned integer argument. </td></tr>
-    <tr><td class="paramname">data</td><td>an unsigned character argument. </td></tr>
+    <tr><td class="paramname">spiFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">regAdd</td><td>a constant uint8_t argument. </td></tr>
+    <tr><td class="paramname">data</td><td>a constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -603,7 +603,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 27 2015 03:55:36 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

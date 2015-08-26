@@ -112,16 +112,16 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1db3a236b7f4e5d7d51b07eea5570e00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket</a> (int socket_type, int protocol)</td></tr>
-<tr class="separator:a1db3a236b7f4e5d7d51b07eea5570e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7064470236c735a8d3e4f64cf104a35c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a7064470236c735a8d3e4f64cf104a35c">canOpenSocket</a> (const int socket_type, const int protocol)</td></tr>
+<tr class="separator:a7064470236c735a8d3e4f64cf104a35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55ed8a8af0c0fd6e9b49c41e765d21d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a55ed8a8af0c0fd6e9b49c41e765d21d4">canOpenRaw</a> (const char *port)</td></tr>
 <tr class="separator:a55ed8a8af0c0fd6e9b49c41e765d21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9741126515b2ba8abd7fe0797e29a37a"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a9741126515b2ba8abd7fe0797e29a37a">canReadBytes</a> (int fd, int *length)</td></tr>
-<tr class="separator:a9741126515b2ba8abd7fe0797e29a37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf1cefa459a18a37dddd05505040c035"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#adf1cefa459a18a37dddd05505040c035">canSendBytes</a> (int canFD, unsigned int no_bytes, unsigned char data[])</td></tr>
-<tr class="separator:adf1cefa459a18a37dddd05505040c035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afafc696379d40568d444c2c23084bbca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#afafc696379d40568d444c2c23084bbca">canClose</a> (int canFD)</td></tr>
-<tr class="separator:afafc696379d40568d444c2c23084bbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a36c8a919732a7922534dafaf5f8915"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a8a36c8a919732a7922534dafaf5f8915">canReadBytes</a> (const int fd, int *length)</td></tr>
+<tr class="separator:a8a36c8a919732a7922534dafaf5f8915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4bd9452449a4404d03b375439ea733d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#ae4bd9452449a4404d03b375439ea733d">canSendBytes</a> (const int canFD, const int no_bytes, const uint8_t data[])</td></tr>
+<tr class="separator:ae4bd9452449a4404d03b375439ea733d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b66fa00bcdc221803fc9435f06cfe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="can_8c.html#a33b66fa00bcdc221803fc9435f06cfe6">canClose</a> (const int canFD)</td></tr>
+<tr class="separator:a33b66fa00bcdc221803fc9435f06cfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CAN general purpose interface code. </p>
@@ -154,14 +154,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="afafc696379d40568d444c2c23084bbca"></a>
+<a class="anchor" id="a33b66fa00bcdc221803fc9435f06cfe6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void canClose </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>canFD</em></td><td>)</td>
           <td></td>
         </tr>
@@ -170,7 +170,7 @@ Functions</h2></td></tr>
 <p>This function is used to close CAN file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">canFD</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">canFD</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -190,32 +190,32 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function takes port string as input and opens socket using <a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket()</a>, locates interface using ioctl() system call then binds the socket with CAN interface and returns the file descriptor. </p>
+<p>This function takes port string as input and opens socket using <a class="el" href="can_8c.html#a7064470236c735a8d3e4f64cf104a35c">canOpenSocket()</a>, locates interface using ioctl() system call then binds the socket with CAN interface and returns the file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">port</td><td>a constant character pointer argument. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="can_8c.html#a1db3a236b7f4e5d7d51b07eea5570e00">canOpenSocket()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="can_8c.html#a7064470236c735a8d3e4f64cf104a35c">canOpenSocket()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If successful then CAN file descriptor after opening socket is returned and if it fails then -1 is returned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1db3a236b7f4e5d7d51b07eea5570e00"></a>
+<a class="anchor" id="a7064470236c735a8d3e4f64cf104a35c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int canOpenSocket </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>socket_type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>protocol</em>&#160;</td>
         </tr>
         <tr>
@@ -228,8 +228,8 @@ Functions</h2></td></tr>
 <p>This function takes socket_type and protocol as input and opens socket of that type and protocol and then returns file descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">socket_type</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">protocol</td><td>an integer argument. </td></tr>
+    <tr><td class="paramname">socket_type</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">protocol</td><td>a constant integer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,14 +237,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9741126515b2ba8abd7fe0797e29a37a"></a>
+<a class="anchor" id="a8a36c8a919732a7922534dafaf5f8915"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">unsigned char* canReadBytes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>fd</em>, </td>
         </tr>
         <tr>
@@ -263,8 +263,8 @@ Functions</h2></td></tr>
 <p>This functions takes file descriptor and length of data to be read as input and returns the pointer to the array of data bytes read. If no data is read then NULL pointer is returned. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">length</td><td>an integer pointer argument. </td></tr>
+    <tr><td class="paramname">fd</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">length</td><td>a integer pointer argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -272,26 +272,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adf1cefa459a18a37dddd05505040c035"></a>
+<a class="anchor" id="ae4bd9452449a4404d03b375439ea733d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int canSendBytes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>canFD</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>no_bytes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>data</em>[]&#160;</td>
         </tr>
         <tr>
@@ -304,9 +304,9 @@ Functions</h2></td></tr>
 <p>This function takes can file descriptor, number of bytes and array of data to be transferred as input and writes given number of bytes of data from data buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">canFD</td><td>an integer argument. </td></tr>
-    <tr><td class="paramname">no_bytes</td><td>an unsigned integer argument. </td></tr>
-    <tr><td class="paramname">data</td><td>array of unsigned char argument. </td></tr>
+    <tr><td class="paramname">canFD</td><td>a constant integer argument. </td></tr>
+    <tr><td class="paramname">no_bytes</td><td>a constant unsigned integer argument. </td></tr>
+    <tr><td class="paramname">data</td><td>array of constant uint8_t argument. </td></tr>
   </table>
   </dd>
 </dl>
@@ -317,7 +317,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 20:24:58 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 27 2015 03:55:36 for BBBAndroidHAL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
