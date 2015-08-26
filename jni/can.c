@@ -86,7 +86,7 @@ int canOpenRaw(const char *port)
  * This functions takes file descriptor and length of data to be read as input
  * and returns the pointer to the array of data bytes read. If no data is read then NULL pointer is returned.
  * @param fd a constant integer argument.
- * @param length a constant integer pointer argument.
+ * @param length a integer pointer argument.
  * @return The pointer to the array of data bytes read. If no data is read then NULL pointer is returned.
  */
 
